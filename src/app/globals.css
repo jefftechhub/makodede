@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: all 700ms ease-in-out;
+}
+
+.bannerimage {
+  height: 50vh;
+}
+
+.aboutMe_Image {
+  object-fit: contain;
+  filter: grayscale();
+  max-height: 90%;
+  max-width: 90%;
+}
+
+.imageContainer p {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.imageContainer {
+  position: relative;
+  height: 60vh;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* for smooth transition in observer  */
+  opacity: 0;
+  transform: translateY(150px);
+}
+
+/* for smooth transition in observer  */
+
+.about,
+.form,
+.navContacts {
+  opacity: 0;
+  transform: translateY(200px);
+}
+
+.about ul li {
+  margin-left: 30px;
+  position: relative;
+}
+
+.about ul li:before {
+  content: "📌";
+  position: absolute;
+  top: 0;
+  left: -30px;
+}
+
+.active {
+  transform: translate(0);
+  position: relative;
+  z-index: 10;
+  transition: 0.7s ease-in-out;
+}
+
+.previous {
+  transform: translate(-100%);
+}
+
+.normal {
+  transform: translate(100%);
+}
+
+.border_active {
+  border-bottom: 3px solid white;
+}
+
+.border_normal {
+  border-bottom: 3px solid transparent;
+}
+
+.border_normal:hover {
+  border-bottom: 3px solid white;
+}
+
+/* banner for smooth transition  */
+
+.banner h2,
+.headingBanner,
+.banner button,
+.banner img {
+  opacity: 0;
+}
+
+.skillsContainer {
+  gap: 40px 20px;
+  opacity: 0;
+}
+
+@media (max-width: 639px) {
+  .imageContainer {
+    height: 50vh;
+    width: 100%;
+  }
+
+  .skillsContainer {
+    gap: 30px 15px;
+    opacity: 0;
+  }
+
+  .about,
+  .form,
+  .navContacts {
+    transform: translateY(150px);
+  }
+
+  .bannerimage {
+    display: none;
+  }
+}
