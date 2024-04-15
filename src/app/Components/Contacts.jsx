@@ -88,7 +88,7 @@ const Contacts = ({ contactsRef }) => {
       </h1>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
 
-      <div className="sm:flex items-start pt-14 sm:pt-20 justify-between gap-6">
+      <div className="sm:flex pt-14 sm:pt-20 justify-between items-center gap-6">
         <nav
           ref={navContacts}
           className="relative flex navContacts text-textColor flex-col sm:pl-5 gap-4"
@@ -167,14 +167,14 @@ const Contacts = ({ contactsRef }) => {
         <form
           action={formAction}
           ref={form}
-          className="form mt-10 sm:mt-0 w-full sm:w-1/2 rounded-md"
+          className="form mt-10 sm:mt-0 w-full sm:w-1/2  bg-blue-500/5 p-8 rounded-r-3xl"
         >
-          <h2 className="text-textColor text-xl sm:text-3xl mb-3 sm:mb-5">
+          <h2 className="text-textColor text-lg sm:text-3xl mb-3 sm:mb-5">
             Leave me a message✍
           </h2>
           <div className="relative my-8">
             <label
-              className="absolute text-textColor  top-1/2 -translate-y-1/2 transition-all duration-300 bg-background origin-left text-sm"
+              className="absolute text-textColor  top-1/2 -translate-y-1/2 transition-all duration-300 bg-transparent origin-left text-sm"
               htmlFor="names"
             >
               Names
@@ -191,7 +191,7 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div className="relative my-8">
             <label
-              className="absolute  top-1/2 -translate-y-1/2 transition-all duration-300 origin-left text-textColor bg-background text-sm"
+              className="absolute  top-1/2 -translate-y-1/2 transition-all duration-300 origin-left text-textColor bg-transparent text-sm"
               htmlFor="email"
             >
               Email Address
@@ -208,7 +208,7 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div class="relative my-8">
             <label
-              className="absolute top-3 text-sm transition-all duration-300 bg-background origin-left text-textColor"
+              className="absolute top-3 text-sm transition-all duration-300 bg-transparent origin-left text-textColor"
               htmlFor="message"
             >
               Message

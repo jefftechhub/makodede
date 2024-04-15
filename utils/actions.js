@@ -17,7 +17,7 @@ export const submitHandler = async (prevState, formdata) => {
       message: message,
     });
 
-    await main(names).catch(console.error);
+    main(names).catch(console.error);
 
     return { message: "success" };
   } catch (error) {
