@@ -1,14 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import { Javascript, Node, ReactLogo, Figma } from "./Icon";
-import NextSvg from "./Logo/nextjs-icon-svgrepo-com.svg";
-import MongoSvg from "./Logo/mongodb-icon.svg";
-import AmazonLogo from "./Logo/amazon.png";
-import GraphQLogo from "./Logo/graphQL.png";
-import MySqLogo from "./Logo/mysql-icon.svg";
-import PostgresQLogo from "./Logo/postgresQL.png";
-import ExpressLogo from "./Logo/expressjs-icon.svg";
-import PythonLogo from "./Logo/python-logo.svg";
 
 import Image from "next/image";
 
@@ -47,7 +39,7 @@ const Skills = () => {
 
   return (
     <section>
-      <h1 className="text-white  text-2xl sm:text-3xl pb-1">
+      <h1 className="text-textColor text-2xl sm:text-3xl pb-1">
         My Skills<span className="text-blue-500">.</span>
       </h1>
       <p
@@ -56,7 +48,7 @@ const Skills = () => {
       ></p>
       <nav
         ref={skillsContainer}
-        className="grid grid-cols-2 sm:flex w-full py-14 sm:py-20 skillsContainer flex-wrap justify-center"
+        className="grid grid-cols-2 sm:flex w-full pt-14 sm:pt-20 skillsContainer flex-wrap justify-center"
       >
         <a
           href="https://devdocs.io/javascript/"
@@ -71,7 +63,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={PythonLogo.src}
+            src="/Logo/python.png"
             width={100}
             height={100}
             priority
@@ -93,13 +85,13 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={NextSvg.src}
+            src="/Logo/nextjs.svg"
             width={100}
             height={100}
             priority
             alt="next.js logo"
             className="sm:h-7 sm:w-7 h-5 w-5"
-          />{" "}
+          />
           Next Js
         </a>
         <a
@@ -115,7 +107,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={ExpressLogo.src}
+            src="/Logo/expressjs-icon.svg"
             width={100}
             height={100}
             priority
@@ -130,7 +122,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={GraphQLogo.src}
+            src="/Logo/graphQL.png"
             width={100}
             height={100}
             priority
@@ -145,7 +137,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={MongoSvg.src}
+            src="/Logo/mongodb-icon.svg"
             width={100}
             height={100}
             priority
@@ -160,7 +152,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={PostgresQLogo.src}
+            src="/Logo/postgresQL.png"
             width={100}
             height={100}
             priority
@@ -175,7 +167,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={MySqLogo.src}
+            src="/Logo/mysql-icon.svg"
             width={100}
             height={100}
             priority
@@ -190,7 +182,7 @@ const Skills = () => {
           className="bg-slate-100 w-full sm:w-52 sm:text-lg text-sm py-2 sm:py-4  rounded-md sm:rounded-lg flex items-center justify-center gap-2 sm:gap-3"
         >
           <Image
-            src={AmazonLogo.src}
+            src="/Logo/amazon.png"
             width={100}
             height={100}
             priority

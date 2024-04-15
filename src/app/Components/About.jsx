@@ -1,15 +1,25 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import Makodede from "../makodede.jpeg";
 import Image from "next/image";
 
 const About = ({ aboutRef }) => {
   const [showless, setShowLess] = useState(false);
   const imageAbout = useRef(null);
-  const articleAbout = useRef(null);
+  const intro = useRef(null);
+  const experience = useRef(null);
+  const education = useRef(null);
+  const conclusion = useRef(null);
+  const thankYou = useRef(null);
 
   useEffect(() => {
-    const itemsObservered = [articleAbout.current, imageAbout.current];
+    const itemsObservered = [
+      imageAbout.current,
+      intro.current,
+      experience.current,
+      education.current,
+      conclusion.current,
+      thankYou.current,
+    ];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -21,6 +31,22 @@ const About = ({ aboutRef }) => {
               item.target.style.opacity = "1";
             }
             if (number === 1) {
+              item.target.style.transform = "translate(0)";
+              item.target.style.opacity = "1";
+            }
+            if (number === 2) {
+              item.target.style.transform = "translate(0)";
+              item.target.style.opacity = "1";
+            }
+            if (number === 3) {
+              item.target.style.transform = "translate(0)";
+              item.target.style.opacity = "1";
+            }
+            if (number === 4) {
+              item.target.style.transform = "translate(0)";
+              item.target.style.opacity = "1";
+            }
+            if (number === 5) {
               item.target.style.transform = "translate(0)";
               item.target.style.opacity = "1";
             }
@@ -40,40 +66,43 @@ const About = ({ aboutRef }) => {
 
   return (
     <section>
-      <h1 ref={aboutRef} className="text-white py-3 text-2xl sm:text-3xl pb-1">
+      <h1
+        ref={aboutRef}
+        className="text-textColor py-3 text-2xl sm:text-3xl pb-1"
+      >
         About Me<span className="text-blue-500">.</span>
       </h1>
       <p className=" inline-block bg-blue-500 sm:w-14 w-12 h-1 rounded-xl"></p>
-      <article className="md:flex sm:py-20 py-14 items-center gap-6">
-        <div className="imageContainer" ref={imageAbout}>
-          <Image
-            src={Makodede.src}
-            width={500}
-            height={600}
-            priority
-            alt="Geofrey Odede's picture"
-            className="aboutMe_Image"
-          />
-          <p></p>
-          <Image
-            src={Makodede.src}
-            fill
-            sizes="(max-width: 639px) 100vw, 50vw"
-            alt="Geofrey Odede's picture"
-            className="object-cover  absolute -z-10"
-          />
-        </div>
-        <div
-          ref={articleAbout}
-          className="about w-full sm:w-2/3 text-sm text-white"
-        >
-          <p className="mt-2 sm:mt-0">
+      <article className=" sm:pt-20 pt-14 text-textColor gap-6">
+        <div className="sm:flex justify-between items-center">
+          <div className="imageContainer" ref={imageAbout}>
+            <Image
+              src="/MyPictures/makodede.jpeg"
+              width={500}
+              height={600}
+              priority
+              alt="Geofrey Odede's picture"
+              className="aboutMe_Image"
+            />
+            <p></p>
+            <Image
+              src="/MyPictures/makodede.jpeg"
+              fill
+              sizes="(max-width: 639px) 100vw, 50vw"
+              alt="Geofrey Odede's picture"
+              className="object-cover  absolute -z-10"
+            />
+          </div>
+
+          <p ref={intro} className="mt-2 sm:w-1/3 text-sm">
             Greetings! I'm excited to introduce myself as a dedicated full stack
             web developer, embarking on a coding journey since January 2022.
             Crafting digital experiences has evolved from a passion into a
             profession, driving me to explore, innovate, and create with every
             line of code.
           </p>
+        </div>
+        <div ref={experience} className="about">
           <h1 className="text-xl py-5 text-blue-500">Experience</h1>
           <h2>Full Stack Web Developer (2022 - Present)</h2>
           <ul>
@@ -111,7 +140,9 @@ const About = ({ aboutRef }) => {
               experiences across various browsers and devices.
             </li>
           </ul>
-          <div className={showless ? "" : "h-0 overflow-hidden"}>
+        </div>
+        <div className={showless ? "" : "h-0 overflow-hidden"}>
+          <div ref={education} className="about">
             <h1 className="text-xl py-5 text-blue-500">Education</h1>
             <h2>Self-Taught Programmer (2022 - Present)</h2>
             <ul>
@@ -125,6 +156,8 @@ const About = ({ aboutRef }) => {
                 proficiency and adaptability.
               </li>
             </ul>
+          </div>
+          <div ref={conclusion} className="about">
             <h1 className="text-xl py-5 text-blue-500">Conclusion</h1>
             <p>
               In my journey as a full stack web developer, I've embraced
@@ -135,6 +168,8 @@ const About = ({ aboutRef }) => {
               projects, I'd love to connect and explore opportunities together.
             </p>
           </div>
+        </div>
+        <div ref={thankYou} className="about ">
           <p className="mt-5">
             Thank you 🙏🙏 for taking the time to learn a bit about me. Let's
             build something extraordinary!

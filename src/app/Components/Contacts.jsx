@@ -2,11 +2,6 @@
 import React, { useRef, useEffect } from "react";
 import { PhoneCall, Linkedin, Email } from "./Icon";
 import Image from "next/image";
-import WhatsApp from "./Logo/WhatsApp.svg.webp";
-import Github from "./Logo/github.svg";
-import Upwork from "./Logo/upwork.png";
-import Tiktok from "./Logo/tiktok.png";
-import Instagram from "./Logo/instagram.png";
 import { submitHandler } from "../../../utils/actions";
 import { useFormStatus, useFormState } from "react-dom";
 import toast from "react-hot-toast";
@@ -87,54 +82,56 @@ const Contacts = ({ contactsRef }) => {
     <section>
       <h1
         ref={contactsRef}
-        className="text-white py-3 text-2xl sm:text-3xl pb-1"
+        className="text-textColor py-3 text-2xl sm:text-3xl pb-1"
       >
         Lets Talk<span className="text-blue-500">.</span>
       </h1>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
 
-      <div className="sm:flex items-start py-14 sm:py-20 justify-between gap-6">
+      <div className="sm:flex items-start pt-14 sm:pt-20 justify-between gap-6">
         <nav
           ref={navContacts}
-          className="relative flex navContacts text-white flex-col sm:pl-5 gap-4"
+          className="relative flex navContacts text-textColor flex-col sm:pl-5 gap-4"
         >
           <div className="flex items-center gap-5">
             <PhoneCall />
             <div>
-              <p className="text-gray-500 text-sm">Mobile Number</p>
+              <p className="text-gray-700 text-sm">Mobile Number</p>
               <p>+254 794 365485 / +254 792 415842</p>
             </div>
           </div>
-          <div className="flex  gap-5">
+          <div className="flex items-center gap-5">
             <Image
-              src={WhatsApp.src}
+              src="/Logo/WhatsApp.svg.webp"
               alt="whatsapp logo"
               width={100}
               height={100}
+              priority
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-500 text-sm">WhatsApp</p>
+              <p className="text-gray-700 text-sm">WhatsApp</p>
               <p>+254 794 365485</p>
             </div>
           </div>
-          <div className="flex  gap-5">
+          <div className="flex items-center gap-5">
             <Email />
             <div>
-              <p className="text-gray-500 text-sm">Email Address</p>
+              <p className="text-gray-700 text-sm">Email Address</p>
               <p>geoffreyodede19@gmail.com</p>
             </div>
           </div>
-          <a href="" target="_blank" className="flex  gap-5">
+          <a href="" target="_blank" className="flex items-center gap-5">
             <Image
-              src={Github.src}
+              src="/Logo/github.svg"
               alt="Github logo"
               width={100}
               height={100}
+              priority
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-500 text-sm">GitHub</p>
+              <p className="text-gray-700 text-sm">GitHub</p>
               <p>@jefftechhub</p>
             </div>
           </a>
@@ -145,46 +142,49 @@ const Contacts = ({ contactsRef }) => {
           >
             <Linkedin />
             <div>
-              <p className="text-gray-500 text-sm">LinkedIn</p>
+              <p className="text-gray-700 text-sm">LinkedIn</p>
               <p>Geofrey Odede</p>
             </div>
           </a>
-          <a href="" target="_blank" className="flex gap-5">
+          <a href="" target="_blank" className="flex items-center gap-5">
             <Image
-              src={Upwork.src}
+              src="/Logo/upwork.png"
               alt="Upwork logo"
               width={100}
               height={100}
+              priority
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-500 text-sm">Upwork</p>
+              <p className="text-gray-700 text-sm">Upwork</p>
               <p>Geofrey Odede</p>
             </div>
           </a>
-          <a href="" target="_blank" className="flex gap-5">
+          <a href="" target="_blank" className="flex items-center gap-5">
             <Image
-              src={Tiktok.src}
+              src="/Logo/tiktok.png"
               alt="Tiktok logo"
               width={100}
               height={100}
+              priority
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-500 text-sm">Tiktok</p>
+              <p className="text-gray-700 text-sm">Tiktok</p>
               <p>@makodede.developer</p>
             </div>
           </a>
-          <a href="" target="_blank" className="flex gap-5">
+          <a href="" target="_blank" className="flex items-center gap-5">
             <Image
-              src={Instagram.src}
+              src="/Logo/instagram.png"
               alt="Instagram logo"
               width={100}
               height={100}
+              priority
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-500 text-sm">Instagram</p>
+              <p className="text-gray-700 text-sm">Instagram</p>
               <p>@makodede.developer</p>
             </div>
           </a>
@@ -194,18 +194,18 @@ const Contacts = ({ contactsRef }) => {
           ref={form}
           className="form mt-10 sm:mt-0 w-full sm:w-1/2 rounded-md"
         >
-          <h2 className="text-white text-xl sm:text-3xl mb-3 sm:mb-5">
+          <h2 className="text-textColor text-xl sm:text-3xl mb-3 sm:mb-5">
             Leave me a message✍
           </h2>
           <div className="relative my-8">
             <label
-              className="absolute text-white  top-1/2 -translate-y-1/2 transition-all duration-300 bg-gray-950 origin-left"
+              className="absolute text-textColor  top-1/2 -translate-y-1/2 transition-all duration-300 bg-background origin-left"
               htmlFor="names"
             >
               Names
             </label>
             <input
-              className="focus:outline-none py-3  border-b-2  bg-transparent border-slate-600 text-white w-full"
+              className="focus:outline-none py-3  border-b-2  bg-transparent duration-0 border-slate-600 text-textColor w-full"
               type="text"
               name="names"
               id="names"
@@ -216,13 +216,13 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div className="relative my-8">
             <label
-              className="absolute  top-1/2 -translate-y-1/2 transition-all duration-300 origin-left text-white bg-gray-950 "
+              className="absolute  top-1/2 -translate-y-1/2 transition-all duration-300 origin-left text-textColor bg-background "
               htmlFor="email"
             >
               Email Address
             </label>
             <input
-              className="focus:outline-none py-3 border-b-2 bg-transparent border-slate-600 text-white w-full"
+              className="focus:outline-none py-3 border-b-2 bg-transparent duration-0 border-slate-600 text-textColor w-full"
               type="text"
               name="email"
               id="email"
@@ -233,13 +233,13 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div class="relative my-8">
             <label
-              className="absolute top-3  transition-all duration-300 bg-gray-950 origin-left text-white"
+              className="absolute top-3  transition-all duration-300 bg-background origin-left text-textColor"
               htmlFor="message"
             >
               Message
             </label>
             <textarea
-              className="focus:outline-none py-5  border-b-2 resize-none text-white bg-transparent border-slate-600 w-full"
+              className="focus:outline-none duration-0 py-5  border-b-2 resize-none text-textColor bg-transparent border-slate-600 w-full"
               type="text"
               name="message"
               id="message"

@@ -3,7 +3,7 @@ export const data = [
     id: 1,
     review:
       "This website has truly revolutionized the way I approach my tasks. The user interface is intuitive, and the features are incredibly helpful. I highly recommend it to anyone looking to streamline their workflow.",
-    image: "/1.webp",
+    image: "/Reviews/1.webp",
     name: "Dan Otieno",
     company: "simbisa",
   },
@@ -21,7 +21,7 @@ export const data = [
 
     review:
       "Since I started using this website, I've noticed a significant improvement in my productivity. The tools provided are so efficient and easy to use. It has become an indispensable part of my daily routine.",
-    image: "/3.webp",
+    image: "/Reviews/3.webp",
     name: "henry third",
     company: "argyle comfy furniture",
   },
@@ -39,7 +39,7 @@ export const data = [
 
     review:
       "As someone who is relatively new to [topic], this website has been a lifesaver. The explanations are clear and concise, and the tutorials are easy to follow. It's the perfect resource for beginners like me.",
-    image: "/5.jpeg",
+    image: "/Reviews/5.jpeg",
     name: "samantha joe",
     company: "Glovo Kenya",
   },
@@ -48,7 +48,7 @@ export const data = [
 
     review:
       "I've been in the [industry] for years, and this website has quickly become one of my favorite tools. The advanced features cater to professionals and help streamline even the most complex tasks. I can't imagine working without it now.",
-    image: "/6.webp",
+    image: "/Reviews/6.webp",
     name: "garry neville",
     company: "Lagosta Ltd",
   },
@@ -57,7 +57,7 @@ export const data = [
 
     review:
       "I've been in the [industry] for years, and this website has quickly become one of my favorite tools. The advanced features cater to professionals and help streamline even the most complex tasks. I can't imagine working without it now.",
-    image: "/6.webp",
+    image: "/Reviews/6.webp",
     name: "odede manganga",
     company: "Lagosta Ltd",
   },

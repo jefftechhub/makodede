@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Profile from "./Logo/profile-simple.svg";
 import { data } from "../data";
 import Image from "next/image";
 import { Quote, RightSlider, LeftSlider, Star } from "./Icon";
@@ -50,14 +49,17 @@ const Review = () => {
 
   return (
     <section>
-      <h1 className="text-white text-2xl sm:text-3xl pb-1">
+      <h1 className="text-textColor text-2xl sm:text-3xl pb-1">
         What clients say<span className="text-blue-500">.</span>
       </h1>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
 
-      <article className="relative sm:py-20 py-14 w-full items-start overflow-x-hidden flex">
+      <article className="relative sm:pt-20 pt-14 w-full items-start text-textColor overflow-x-hidden flex">
         {index > 0 && (
-          <button className="absolute z-50 top-1/2 left-0" onClick={previous}>
+          <button
+            className="absolute text-textColor z-50 top-1/2 left-0"
+            onClick={previous}
+          >
             <LeftSlider />
           </button>
         )}
@@ -94,10 +96,10 @@ const Review = () => {
           return (
             <div
               key={reviewIndex}
-              className={`px-6  absolute ${position} bg-gray-950`}
+              className={`px-6  absolute ${position} bg-background`}
             >
               <div className="flex flex-col gap-6 items-center">
-                <div className="relative">
+                <div className="relative ">
                   <Quote />
                   {item && item.image ? (
                     <Image
@@ -106,16 +108,16 @@ const Review = () => {
                       height={100}
                       priority
                       alt="profile picture"
-                      className="bg-white object-top object-cover sm:h-32 sm:w-32 h-28  w-28 rounded-full sm:border-8 border-4  border-blue-500"
+                      className="bg-textColor object-top object-cover  sm:h-32 sm:w-32 h-28  w-28 rounded-full sm:border-8 border-4  border-blue-500"
                     />
                   ) : (
                     <Image
-                      src={Profile.src}
+                      src="/Logo/profile-simple.svg"
                       width={100}
                       height={100}
                       priority
                       alt="profile picture"
-                      className="bg-white h-28 sm:h-32 w-28 sm:w-32 rounded-full border-4 sm:border-4  border-blue-500"
+                      className="bg-white h-28 sm:h-32 w-28 sm:w-32 rounded-full border-4 sm:border-8  border-blue-500"
                     />
                   )}
                 </div>
@@ -126,7 +128,7 @@ const Review = () => {
                   <p className="capitalize mb-3 text-blue-500 text-sm sm:text-xl">
                     {item && item.company}
                   </p>
-                  <div className="flex">
+                  <div className="flex text-orange-400">
                     <Star />
                     <Star />
                     <Star />
@@ -135,7 +137,7 @@ const Review = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-center text-sm text-white">
+              <p className="text-center text-sm text-textColor">
                 {item && item.review}
               </p>
             </div>
@@ -143,7 +145,10 @@ const Review = () => {
         })}
 
         {index < reviews.length - 2 && (
-          <button className="absolute  top-1/2 right-0 z-50" onClick={next}>
+          <button
+            className="absolute text-textColor top-1/2 right-0 z-50"
+            onClick={next}
+          >
             <RightSlider />
           </button>
         )}

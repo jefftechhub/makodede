@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./Components/Footer";
-import Providers from "./Providers";
+import ThemeProvider from "./context/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="font-mono flex flex-col items-center bg-gray-950">
-        {/* added main to sort out width  */}
-        <main className="md:w-full sm:w-full lg:w-2/3 px-8 sm:px-9">
-          <Providers>{children}</Providers>
-        </main>
-        <Footer />
-      </body>
+      <ThemeProvider>
+        <body>{children}</body>
+      </ThemeProvider>
     </html>
   );
 }

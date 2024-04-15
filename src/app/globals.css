@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --screenHeight: 70vh;
+}
+
+.dark {
+  --background: 3, 7, 18;
+  --textColor: 255, 255, 255;
+  --textColorBanner: rgb(216, 204, 66);
+  --btnBgColor: 255, 255, 255;
+  background: rgba(var(--background));
+}
+
+.light {
+  --background: 255, 255, 255;
+  --textColor: 0, 0, 0;
+  --textColorBanner: rgb(200, 145, 7);
+  --btnBgColor: 0, 0, 0;
+  background: rgba(var(--background));
+}
+
 * {
   transition: all 700ms ease-in-out;
 }
@@ -27,8 +47,8 @@
 
 .imageContainer {
   position: relative;
-  height: 60vh;
-  width: 60%;
+  height: 50vh;
+  width: 65%;
   display: flex;
   justify-content: center;
   align-items: center;
