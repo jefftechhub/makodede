@@ -6,12 +6,13 @@ export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" ? localStorage.getItem("theme") : "dark"
+    // typeof window !== "undefined" ? localStorage.getItem("theme") : "dark"
+    "dark"
   );
 
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
 
   return (
     <ThemeContext.Provider
