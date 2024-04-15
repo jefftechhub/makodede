@@ -86,7 +86,7 @@ const Banner = () => {
       <div className="bannerimage overflow-hidden w-1/2 relative">
         <Image
           ref={image}
-          src="/Mypictures/bannerImage.svg"
+          src="/MyPictures/bannerImage.svg"
           fill
           sizes="(max-width: 639px) 100vw, 50vw"
           className="translate-x-full"

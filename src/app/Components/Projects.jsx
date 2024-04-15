@@ -3,14 +3,12 @@ import React, { useState, useEffect } from "react";
 
 const Projects = ({ projectRef }) => {
   const [active, setActive] = useState(
-    typeof window !== "undefined"
-      ? window.localStorage.getItem("btn")
-      : "portfolio"
+    typeof window !== "undefined" ? localStorage.getItem("btn") : "portfolio"
   );
   const btns = ["portfolio", "E-commerce", "Publishing site"];
 
   useEffect(() => {
-    typeof window !== "undefined" && window.localStorage.setItem("btn", active);
+    localStorage.setItem("btn", active);
   }, [active]);
 
   const handleSetActive = (btn) => {
