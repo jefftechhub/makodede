@@ -93,57 +93,32 @@ const Contacts = ({ contactsRef }) => {
           ref={navContacts}
           className="relative flex navContacts text-textColor flex-col sm:pl-5 gap-4"
         >
-          <div className="flex items-center gap-5">
+          <div className="flex items-center  gap-5">
             <PhoneCall />
-            <div>
-              <p className="text-gray-700 text-sm">Mobile Number</p>
-              <p>+254 794 365485 / +254 792 415842</p>
+            <div className="flex flex-col">
+              <p className="text-gray-700 text-xs">Mobile Number</p>
+              <p className="text-sm">+254 794 365485</p>
+              <p className="tex-sm">+254 792 415842</p>
             </div>
           </div>
-          <div className="flex items-center gap-5">
-            <Image
-              src="/Logo/WhatsApp.svg.webp"
-              alt="whatsapp logo"
-              width={100}
-              height={100}
-              priority
-              className="h-7 w-7"
-            />
-            <div>
-              <p className="text-gray-700 text-sm">WhatsApp</p>
-              <p>+254 794 365485</p>
-            </div>
-          </div>
+
           <div className="flex items-center gap-5">
             <Email />
             <div>
-              <p className="text-gray-700 text-sm">Email Address</p>
-              <p>geoffreyodede19@gmail.com</p>
+              <p className="text-gray-700 text-xs">Email Address</p>
+              <p className="text-sm">geoffreyodede19@gmail.com</p>
             </div>
           </div>
-          <a href="" target="_blank" className="flex items-center gap-5">
-            <Image
-              src="/Logo/github.svg"
-              alt="Github logo"
-              width={100}
-              height={100}
-              priority
-              className="h-7 w-7"
-            />
-            <div>
-              <p className="text-gray-700 text-sm">GitHub</p>
-              <p>@jefftechhub</p>
-            </div>
-          </a>
+
           <a
             href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=geofrey-odede-3028832bb"
             target="_blank"
-            className="flex gap-5"
+            className="flex gap-5 text-textColor"
           >
             <Linkedin />
             <div>
-              <p className="text-gray-700 text-sm">LinkedIn</p>
-              <p>Geofrey Odede</p>
+              <p className="text-gray-700 text-xs">LinkedIn</p>
+              <p className="text-sm">Geofrey Odede</p>
             </div>
           </a>
           <a href="" target="_blank" className="flex items-center gap-5">
@@ -156,8 +131,8 @@ const Contacts = ({ contactsRef }) => {
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-700 text-sm">Upwork</p>
-              <p>Geofrey Odede</p>
+              <p className="text-gray-700 text-xs">Upwork</p>
+              <p className="text-sm">Geofrey Odede</p>
             </div>
           </a>
           <a href="" target="_blank" className="flex items-center gap-5">
@@ -170,8 +145,8 @@ const Contacts = ({ contactsRef }) => {
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-700 text-sm">Tiktok</p>
-              <p>@makodede.developer</p>
+              <p className="text-gray-700 text-xs">Tiktok</p>
+              <p className="text-sm">@makodede.developer</p>
             </div>
           </a>
           <a href="" target="_blank" className="flex items-center gap-5">
@@ -184,8 +159,8 @@ const Contacts = ({ contactsRef }) => {
               className="h-7 w-7"
             />
             <div>
-              <p className="text-gray-700 text-sm">Instagram</p>
-              <p>@makodede.developer</p>
+              <p className="text-gray-700 text-xs">Instagram</p>
+              <p className="text-sm">@makodede.developer</p>
             </div>
           </a>
         </nav>
@@ -199,13 +174,13 @@ const Contacts = ({ contactsRef }) => {
           </h2>
           <div className="relative my-8">
             <label
-              className="absolute text-textColor  top-1/2 -translate-y-1/2 transition-all duration-300 bg-background origin-left"
+              className="absolute text-textColor  top-1/2 -translate-y-1/2 transition-all duration-300 bg-background origin-left text-sm"
               htmlFor="names"
             >
               Names
             </label>
             <input
-              className="focus:outline-none py-3  border-b-2  bg-transparent duration-0 border-slate-600 text-textColor w-full"
+              className="focus:outline-none py-3 text-lg border-b-2  bg-transparent duration-0 border-slate-600 text-textColor w-full"
               type="text"
               name="names"
               id="names"
@@ -216,13 +191,13 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div className="relative my-8">
             <label
-              className="absolute  top-1/2 -translate-y-1/2 transition-all duration-300 origin-left text-textColor bg-background "
+              className="absolute  top-1/2 -translate-y-1/2 transition-all duration-300 origin-left text-textColor bg-background text-sm"
               htmlFor="email"
             >
               Email Address
             </label>
             <input
-              className="focus:outline-none py-3 border-b-2 bg-transparent duration-0 border-slate-600 text-textColor w-full"
+              className="focus:outline-none py-3 border-b-2 bg-transparent duration-0 border-slate-600 text-textColor w-full text-lg"
               type="text"
               name="email"
               id="email"
@@ -233,13 +208,13 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div class="relative my-8">
             <label
-              className="absolute top-3  transition-all duration-300 bg-background origin-left text-textColor"
+              className="absolute top-3 text-sm transition-all duration-300 bg-background origin-left text-textColor"
               htmlFor="message"
             >
               Message
             </label>
             <textarea
-              className="focus:outline-none duration-0 py-5  border-b-2 resize-none text-textColor bg-transparent border-slate-600 w-full"
+              className="focus:outline-none duration-0 py-5  border-b-2 resize-none text-textColor bg-transparent border-slate-600 text-lg w-full"
               type="text"
               name="message"
               id="message"
@@ -261,7 +236,7 @@ const SubmitBtn = () => {
   return (
     <button
       disabled={pending}
-      className="text-white text-sm bg-blue-500 py-3 rounded-md px-8 my-5"
+      className="text-white text-xs bg-blue-500 py-3 rounded-md px-8 my-5"
     >
       {pending ? "submiting..." : "submit"}
     </button>

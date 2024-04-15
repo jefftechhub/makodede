@@ -16,6 +16,10 @@ module.exports = {
       height: {
         screenHeight: "var(--screenHeight)",
       },
+      fontFamily: {
+        fontFamilyMain: "var(--fontFamilyMain)",
+        fontFamilySecondary: "var(--fontFamilySecondary)",
+      },
     },
   },
 

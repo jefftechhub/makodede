@@ -54,7 +54,7 @@ const Review = () => {
       </h1>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
 
-      <article className="relative sm:pt-20 pt-14 w-full items-start text-textColor overflow-x-hidden flex">
+      <article className="relative sm:pt-20 pt-14 w-full items-start text-textColor overflow-hidden flex">
         {index > 0 && (
           <button
             className="absolute text-textColor z-50 top-1/2 left-0"
@@ -94,12 +94,12 @@ const Review = () => {
           }
 
           return (
-            <div
+            <article
               key={reviewIndex}
-              className={`px-6  absolute ${position} bg-background`}
+              className={`px-6 absolute ${position} bg-background `}
             >
               <div className="flex flex-col gap-6 items-center">
-                <div className="relative ">
+                <div className="relative overflow-hidden">
                   <Quote />
                   {item && item.image ? (
                     <Image
@@ -108,7 +108,7 @@ const Review = () => {
                       height={100}
                       priority
                       alt="profile picture"
-                      className="bg-textColor object-top object-cover  sm:h-32 sm:w-32 h-28  w-28 rounded-full sm:border-8 border-4  border-blue-500"
+                      className="bg-textColor object-top object-cover  sm:h-28 sm:w-28 h-24  w-24 rounded-full sm:border-8 border-4  border-blue-500"
                     />
                   ) : (
                     <Image
@@ -117,18 +117,18 @@ const Review = () => {
                       height={100}
                       priority
                       alt="profile picture"
-                      className="bg-white h-28 sm:h-32 w-28 sm:w-32 rounded-full border-4 sm:border-8  border-blue-500"
+                      className="bg-white h-24 sm:h-28 w-24 sm:w-28 rounded-full border-4 sm:border-8  border-blue-500"
                     />
                   )}
                 </div>
                 <div className="flex flex-col items-center">
-                  <p className="capitalize mb-3 text-blue-500 font-bold text-xl sm:text-2xl">
+                  <h3 className="capitalize mb-3 text-blue-500 font-bold text-xl sm:text-2xl">
                     {item && item.name}
-                  </p>
-                  <p className="capitalize mb-3 text-blue-500 text-sm sm:text-xl">
+                  </h3>
+                  <h4 className="capitalize mb-3 text-blue-500 text-sm sm:text-lg">
                     {item && item.company}
-                  </p>
-                  <div className="flex text-orange-400">
+                  </h4>
+                  <div className="flex mb-2 text-orange-400">
                     <Star />
                     <Star />
                     <Star />
@@ -140,7 +140,7 @@ const Review = () => {
               <p className="text-center text-sm text-textColor">
                 {item && item.review}
               </p>
-            </div>
+            </article>
           );
         })}
 

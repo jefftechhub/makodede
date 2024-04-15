@@ -1,20 +1,21 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { PhoneCall } from "./Icon";
+import { Github } from "./Icon";
+import { WhatsApp } from "./Icon";
 
 const Banner = () => {
   const image = useRef(null);
   const my_name = useRef(null);
   const headingBanner = useRef(null);
-  const bannerBtn = useRef(null);
+  const bannerContacts = useRef(null);
 
   useEffect(() => {
     const itemsObservered = [
       image.current,
       my_name.current,
       headingBanner.current,
-      bannerBtn.current,
+      bannerContacts.current,
     ];
 
     const observer = new IntersectionObserver((entries) => {
@@ -55,13 +56,13 @@ const Banner = () => {
           className=" text-textColor relative inline-block  rounded-xl  text-sm text-start translate-y-full"
         >
           Hello! 👋👋 I am
-          <span className="font-bold"> GEOFREY ODHIAMBO ODEDE</span>
+          <span className="font-bold text-lg"> GEOFREY ODHIAMBO ODEDE</span>
         </h2>
         <div
           ref={headingBanner}
           className="headingBanner text-textColor translate-y-28 py-10 z-10"
         >
-          <h1 className="text-2xl uppercase md:text-4xl text-textColorBanner">
+          <h1 className="text-3xl font-bold uppercase md:text-4xl text-textColorBanner font-fontFamilySecondary">
             Welcome to my digital space
           </h1>
           <p className="text-textColor text-sm py-5">
@@ -76,12 +77,17 @@ const Banner = () => {
             leave a <span className="text-blue-500">lasting impression</span>.
           </p>
         </div>
-        <button
-          ref={bannerBtn}
-          className="-translate-x-full uppercase text-sm text-background font-bold bg-btnBgColor  border-none py-3 px-7 sm:px-8 rounded-lg sm:rounded-xl flex gap-3 items-center"
+        <div
+          ref={bannerContacts}
+          className="flex gap-4 -translate-x-full opacity-0"
         >
-          <PhoneCall /> book a call
-        </button>
+          <a href="" target="_blank">
+            <WhatsApp />
+          </a>
+          <a href="" target="_blank">
+            <Github />
+          </a>
+        </div>
       </div>
       <div className="bannerimage overflow-hidden w-1/2 relative">
         <Image

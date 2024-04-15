@@ -47,7 +47,7 @@ const NavbarJsx = ({ project, about, contacts }) => {
         <h2 className="text-textColor text-xl uppercase">Logo</h2>
         <nav
           ref={nav}
-          className="flex -translate-x-full  sm:translate-x-0 sm:flex-row  sm:bg-transparent sm:gap-6 sm:p-0 flex-col items-start gap-6 sm:left-0 -left-4 py-14 pl-8 w-3/4 sm:w-full pb-40 z-30 h-screenHeight sm:h-auto absolute sm:relative backdrop-blur-sm sm:backdrop-blur-0 bg-blue-800/65 rounded-br-3xl"
+          className="flex -translate-x-full  sm:translate-x-0 sm:flex-row  sm:bg-transparent sm:gap-6 sm:p-0 flex-col items-start gap-6 sm:left-0 -left-4 py-14 pl-8 w-3/4 sm:w-full pb-40 z-30 h-screenHeight sm:h-auto absolute sm:relative backdrop-blur-sm sm:backdrop-blur-0 bg-blue-800/65 rounded-br-3xl transition-transform duration-300 ease-in-out"
         >
           <button
             className="text-textColor flex gap-4 text-xl sm:text-sm items-center"
@@ -101,7 +101,7 @@ const NavbarJsx = ({ project, about, contacts }) => {
         <div>
           {theme === "dark" && (
             <button
-              className="text-textColor"
+              className="text-textColor p-2 rounded-full hover:bg-textColor/5"
               onClick={() => {
                 setTheme("light");
               }}
@@ -111,7 +111,7 @@ const NavbarJsx = ({ project, about, contacts }) => {
           )}
           {theme === "light" && (
             <button
-              className="text-textColor"
+              className="text-textColor p-2 hover:bg-textColor/5 rounded-full"
               onClick={() => {
                 setTheme("dark");
               }}

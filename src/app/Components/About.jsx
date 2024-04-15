@@ -104,8 +104,10 @@ const About = ({ aboutRef }) => {
         </div>
         <div ref={experience} className="about">
           <h1 className="text-xl py-5 text-blue-500">Experience</h1>
-          <h2>Full Stack Web Developer (2022 - Present)</h2>
-          <ul>
+          <h2 className="text-lg mb-2">
+            Full Stack Web Developer (2022 - Present)
+          </h2>
+          <ul className="text-sm">
             <li>
               Designed and developed dynamic and responsive web applications
               utilizing HTML, CSS, JavaScript, and modern frameworks such as
@@ -144,8 +146,10 @@ const About = ({ aboutRef }) => {
         <div className={showless ? "" : "h-0 overflow-hidden"}>
           <div ref={education} className="about">
             <h1 className="text-xl py-5 text-blue-500">Education</h1>
-            <h2>Self-Taught Programmer (2022 - Present)</h2>
-            <ul>
+            <h2 className="text-lg mb-2">
+              Self-Taught Programmer (2022 - Present)
+            </h2>
+            <ul className="text-sm">
               <li>
                 Leveraged online resources such as YouTube tutorials and coding
                 communities to acquire knowledge and skills in web development.
@@ -159,7 +163,7 @@ const About = ({ aboutRef }) => {
           </div>
           <div ref={conclusion} className="about">
             <h1 className="text-xl py-5 text-blue-500">Conclusion</h1>
-            <p>
+            <p className="text-sm">
               In my journey as a full stack web developer, I've embraced
               challenges, celebrated victories, and continually expanded my
               horizons. My dedication to self-improvement and my passion for
@@ -169,13 +173,13 @@ const About = ({ aboutRef }) => {
             </p>
           </div>
         </div>
-        <div ref={thankYou} className="about ">
-          <p className="mt-5">
+        <div ref={thankYou} className="about">
+          <p className="mt-5 text-sm">
             Thank you 🙏🙏 for taking the time to learn a bit about me. Let's
             build something extraordinary!
           </p>
           <button
-            className="text-white text-sm bg-blue-500 py-3 px-8 rounded-md my-5"
+            className="text-white text-xs bg-blue-500 py-3 px-8 rounded-md my-5"
             onClick={() => {
               setShowLess(!showless);
             }}

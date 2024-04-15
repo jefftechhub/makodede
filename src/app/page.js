@@ -20,7 +20,7 @@ export default function Home() {
   return (
     // flex Child to add gaps
     //inside each child to div padding is added for enough spacing
-    <main className={`font-mono flex flex-col items-center ${theme}`}>
+    <main className={`font-fontFamilyMain flex flex-col items-center ${theme}`}>
       <main className="flex flex-col gap-20 md:w-full sm:w-full lg:w-2/3 px-4 sm:px-9">
         <NavbarJsx
           project={projectRef.current}

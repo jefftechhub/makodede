@@ -48,7 +48,7 @@ const Skills = () => {
       ></p>
       <nav
         ref={skillsContainer}
-        className="grid grid-cols-2 sm:flex w-full pt-14 sm:pt-20 skillsContainer flex-wrap justify-center"
+        className="grid grid-cols-2 sm:flex w-full pt-14 sm:pt-20 skillsContainer flex-wrap justify-center transition-all duration-500 ease-in-out"
       >
         <a
           href="https://devdocs.io/javascript/"
