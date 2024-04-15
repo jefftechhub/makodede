@@ -56,7 +56,7 @@ const Banner = () => {
           className=" text-textColor relative inline-block  rounded-xl  text-sm text-start translate-y-full"
         >
           Hello! 👋👋 I am
-          <span className="font-bold text-lg"> GEOFREY ODHIAMBO ODEDE</span>
+          <span className="font-bold text-sm"> GEOFREY ODHIAMBO ODEDE</span>
         </h2>
         <div
           ref={headingBanner}
