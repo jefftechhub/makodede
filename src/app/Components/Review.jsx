@@ -57,7 +57,7 @@ const Review = () => {
       <article className="relative sm:pt-20 pt-14 w-full items-start text-textColor overflow-hidden flex">
         {index > 0 && (
           <button
-            className="absolute text-textColor z-50 top-1/2 left-0"
+            className="absolute text-textColor z-40 top-1/2 left-0"
             onClick={previous}
           >
             <LeftSlider />
@@ -146,7 +146,7 @@ const Review = () => {
 
         {index < reviews.length - 2 && (
           <button
-            className="absolute text-textColor top-1/2 right-0 z-50"
+            className="absolute text-textColor top-1/2 right-0 z-40"
             onClick={next}
           >
             <RightSlider />

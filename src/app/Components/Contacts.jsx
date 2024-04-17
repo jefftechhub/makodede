@@ -167,7 +167,7 @@ const Contacts = ({ contactsRef }) => {
         <form
           action={formAction}
           ref={form}
-          className="form mt-10 sm:mt-0 w-full sm:w-1/2  bg-blue-500/5 p-8 rounded-r-3xl"
+          className="form mt-10 sm:mt-0 w-full sm:w-1/2  bg-blue-500/5 p-8 sm:rounded-r-3xl"
         >
           <h2 className="text-textColor text-lg sm:text-3xl mb-3 sm:mb-5">
             Leave me a message✍

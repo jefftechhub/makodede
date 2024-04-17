@@ -2,7 +2,7 @@
 import { useContext, useRef } from "react";
 import Banner from "./Components/Banner";
 import Skills from "./Components/Skills";
-import Projects from "./Components/Projects";
+import Projects_Container from "./Components/Projects_Container";
 import About from "./Components/About";
 import NavbarJsx from "./Components/Navbar";
 import BackToTop from "./Components/BackToTop";
@@ -21,7 +21,7 @@ export default function Home() {
     // flex Child to add gaps
     //inside each child to div padding is added for enough spacing
     <main className={`font-fontFamilyMain flex flex-col items-center ${theme}`}>
-      <main className="flex flex-col gap-20 md:w-full sm:w-full lg:w-2/3 px-4 sm:px-9">
+      <main className="flex flex-col gap-20 md:w-full sm:w-full lg:w-eightyvw px-4 sm:px-9">
         <NavbarJsx
           project={projectRef.current}
           about={aboutRef.current}
@@ -30,7 +30,7 @@ export default function Home() {
         <BackToTop />
         <Banner />
         <Skills />
-        <Projects projectRef={projectRef} />
+        <Projects_Container projectRef={projectRef} />
         <About aboutRef={aboutRef} />
         <Contacts contactsRef={contactsRef} />
         <Review />

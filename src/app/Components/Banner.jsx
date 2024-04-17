@@ -79,12 +79,12 @@ const Banner = () => {
         </div>
         <div
           ref={bannerContacts}
-          className="flex gap-4 -translate-x-full opacity-0"
+          className="flex gap-2 -translate-x-full opacity-0"
         >
-          <a href="" target="_blank">
+          <a className="bg-textColor p-3 rounded-sm" href="" target="_blank">
             <WhatsApp />
           </a>
-          <a href="" target="_blank">
+          <a className="bg-textColor p-3 rounded-sm" href="" target="_blank">
             <Github />
           </a>
         </div>
