@@ -8,7 +8,19 @@ const messageSchema = new Schema({
   message: String,
 });
 
+const projectSchema = new Schema({
+  images: Array,
+  title: String,
+  category: String,
+  websiteURL: String,
+  description: String,
+  features: Array,
+});
+
 mongoose.models = {};
 
 export const Messages =
   mongoose.models.Messages || mongoose.model("Messages", messageSchema);
+
+export const Projects =
+  mongoose.models.Projects || mongoose.model("Projects", projectSchema);

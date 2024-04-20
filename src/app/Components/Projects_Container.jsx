@@ -16,9 +16,11 @@ import {
   Cancel,
   Search,
 } from "./Icon";
+import { getProjects } from "../../../utils/actions";
 
 const Projects_Container = ({ projectRef }) => {
   const [menu, setMenu] = useState(false);
+  const [projects, setProjects] = useState([]);
 
   const btns = [
     "portfolio",
@@ -31,6 +33,19 @@ const Projects_Container = ({ projectRef }) => {
     "Entertainment",
     "other Projects",
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const projects = await getProjects();
+        setProjects(projects);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section ref={projectRef}>
@@ -69,7 +84,7 @@ const Projects_Container = ({ projectRef }) => {
 
         <main className="relative overflow-hidden">
           <nav
-            className={`flex z-10 bg-slate-800  top-0  py-5 flex-col w-auto items-start absolute duration-300 ${
+            className={`flex z-10 bg-slate-800  top-0  py-5 flex-col w-auto items-start absolute ease-in-out transition-all duration-300 -left-1 ${
               menu ? "translate-x-0" : "-translate-x-full"
             }`}
           >
@@ -78,14 +93,9 @@ const Projects_Container = ({ projectRef }) => {
             ))}
           </nav>
           <section className="flex flex-col md:grid grid-cols-2 gap-2">
-            <Projects setMenu={setMenu} />
-            <Projects setMenu={setMenu} />
-            <Projects setMenu={setMenu} />
-            <Projects setMenu={setMenu} />
-            <Projects setMenu={setMenu} />
-            {/* {projects.map((items) => {
-              return <Projects />;
-            })} */}
+            {projects.map((item) => {
+              return <Projects setMenu={setMenu} {...item} />;
+            })}
           </section>
         </main>
       </article>

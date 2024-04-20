@@ -62,16 +62,13 @@ const Banner = () => {
           ref={headingBanner}
           className="headingBanner text-textColor translate-y-28 py-10 z-10"
         >
-          <h1 className="text-3xl font-bold uppercase md:text-4xl text-textColorBanner font-fontFamilySecondary">
+          <h1 className="text-4xl font-bold uppercase md:text-5xl text-textColorBanner font-fontFamilySecondary">
             Welcome to my digital space
           </h1>
           <p className="text-textColor text-sm py-5">
-            I am a web developer with a{" "}
-            <span className="text-blue-500">passion</span> for crafting
-            captivating digital experiences. Through{" "}
-            <span className="text-blue-500">meticulous coding</span> and{" "}
-            <span className="text-blue-500">creative design</span>, I bring
-            ideas to life on the web. I specialize in building{" "}
+            I am a <span className="text-blue-500">full stack</span> web
+            developer with a <span className="text-blue-500">passion</span> for
+            crafting captivating digital experiences. I specialize in building{" "}
             <span className="text-blue-500">dynamic</span> and{" "}
             <span className="text-blue-500">responsive</span> websites that
             leave a <span className="text-blue-500">lasting impression</span>.
@@ -79,13 +76,21 @@ const Banner = () => {
         </div>
         <div
           ref={bannerContacts}
-          className="flex gap-2 -translate-x-full opacity-0"
+          className="flex gap-5 -translate-x-full opacity-0"
         >
-          <a className="bg-textColor p-3 rounded-sm" href="" target="_blank">
-            <WhatsApp />
+          <a
+            className="py-3 px-6 rounded-3xl  rounded-xs items-center flex gap-2 text-white bg-blue-600 transition-all ease-in-out duration-200 hover:bg-blue-500"
+            href=""
+            target="_blank"
+          >
+            <WhatsApp /> WhatsApp
           </a>
-          <a className="bg-textColor p-3 rounded-sm" href="" target="_blank">
-            <Github />
+          <a
+            className="py-3 px-6 rounded-xs text-textColor items-center rounded-3xl  flex gap-2 border-2 border-blue-500 transition-all ease-in-out duration-200 hover:border-blue-300"
+            href=""
+            target="_blank"
+          >
+            <Github /> Github
           </a>
         </div>
       </div>

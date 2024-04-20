@@ -11,6 +11,7 @@ const ThemeProvider = ({ children }) => {
     //   : "dark"
     "dark"
   );
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -21,6 +22,8 @@ const ThemeProvider = ({ children }) => {
       value={{
         theme,
         setTheme,
+        setImages,
+        images,
       }}
     >
       <Toaster />

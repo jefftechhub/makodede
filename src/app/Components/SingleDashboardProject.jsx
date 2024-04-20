@@ -1,8 +1,3 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import { Cancel, RightSlider, LeftSlider, Tick } from "./Icon";
-
 const SingleProject = ({
   setShowMore,
   description,
@@ -113,5 +108,3 @@ const SingleProject = ({
     </article>
   );
 };
-
-export default SingleProject;
