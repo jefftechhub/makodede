@@ -49,11 +49,11 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className="banner  sm:flex py-10">
+    <section className="banner  sm:flex py-14">
       <div className="flex flex-col items-start justify-evenly w-full sm:w-1/2">
         <h2
           ref={my_name}
-          className=" text-textColor relative inline-block  rounded-xl  text-sm text-start translate-y-full"
+          className=" text-textColor relative inline-block  rounded-xl md:text-start text-center text-sm translate-y-full w-full"
         >
           Hello! 👋👋 I am
           <span className="font-bold text-sm"> GEOFREY ODHIAMBO ODEDE</span>
@@ -62,10 +62,13 @@ const Banner = () => {
           ref={headingBanner}
           className="headingBanner text-textColor translate-y-28 py-10 z-10"
         >
-          <h1 className="text-4xl font-bold uppercase md:text-5xl text-textColorBanner font-fontFamilySecondary">
-            Welcome to my digital space
+          <h1
+            className="text-4xl font-bold uppercase md:text-5xl text-textColorBanner 
+          text-center md:text-start font-fontFamilySecondary"
+          >
+            Welcome🤝 to my digital space🚀
           </h1>
-          <p className="text-textColor text-sm py-5">
+          <p className="text-textColor text-sm py-5 text-center md:text-start">
             I am a <span className="text-blue-500">full stack</span> web
             developer with a <span className="text-blue-500">passion</span> for
             crafting captivating digital experiences. I specialize in building{" "}
@@ -76,17 +79,17 @@ const Banner = () => {
         </div>
         <div
           ref={bannerContacts}
-          className="flex gap-5 -translate-x-full opacity-0"
+          className="flex w-full md:justify-start justify-center gap-3 md:gap-5 -translate-x-full opacity-0"
         >
           <a
-            className="py-3 px-6 rounded-3xl  rounded-xs items-center flex gap-2 text-white bg-blue-600 transition-all ease-in-out duration-200 hover:bg-blue-500"
+            className="py-2 px-3 md:py-3 md:px-6 rounded-3xl  text-xs items-center flex gap-2 text-white bg-blue-600 transition-all ease-in-out duration-200 hover:bg-blue-500"
             href=""
             target="_blank"
           >
             <WhatsApp /> WhatsApp
           </a>
           <a
-            className="py-3 px-6 rounded-xs text-textColor items-center rounded-3xl  flex gap-2 border-2 border-blue-500 transition-all ease-in-out duration-200 hover:border-blue-300"
+            className="py-2 px-3 md:py-3 md:px-6  text-xs text-textColor items-center rounded-3xl  flex gap-2 border-2 border-blue-500 transition-all ease-in-out duration-200 hover:border-blue-300"
             href=""
             target="_blank"
           >

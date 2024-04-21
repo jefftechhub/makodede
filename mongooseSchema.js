@@ -15,6 +15,10 @@ const projectSchema = new Schema({
   websiteURL: String,
   description: String,
   features: Array,
+  active: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 mongoose.models = {};

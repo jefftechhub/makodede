@@ -2,7 +2,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Cancel, Remove, Tick } from "./Icon";
+import { updateProject } from "../../../utils/actions";
 import { useFormStatus } from "react-dom";
+import toast from "react-hot-toast";
 
 const EditProject = ({
   setShowMore,
@@ -12,12 +14,23 @@ const EditProject = ({
   title,
   websiteURL,
   category,
+  id,
 }) => {
   const [index, setIndex] = useState(0);
   const [projectImages, setProjectImages] = useState(images);
   const [newImages, setNewImages] = useState([]);
   const [imagesLength, setImagesLength] = useState(projectImages.length);
   const [previewUrls, setPreviewUrls] = useState([]);
+
+  const [formData, setFormData] = useState({
+    title,
+    description,
+    features,
+    title,
+    websiteURL,
+    category,
+  });
+
   const setFeatures = [
     "Send Email",
     "S.E.O",
@@ -72,9 +85,57 @@ const EditProject = ({
     setIndex(index - 1);
   };
 
+  const submitUpdate = async (formdata) => {
+    try {
+      // append new images to form data
+
+      if (newImages.length > 0) {
+        newImages.forEach((image) => {
+          formdata.append("newImages", image);
+        });
+      }
+
+      // append old images to form data
+      if (projectImages.length > 0) {
+        projectImages.forEach((image) => {
+          formdata.append("oldImages", image);
+        });
+      }
+
+      const { success } = await updateProject(formdata);
+      if (success) {
+        toast.success("Project updated");
+        setFormData({
+          title: "",
+          description: "",
+          features: [],
+          title: "",
+          websiteURL: "",
+          category: "",
+        });
+        setProjectImages([]);
+      } else if (!success) {
+        toast.error("Project not updated");
+      }
+    } catch (error) {
+      toast.error("Project not updated");
+      console.error("Error submitting project:", error);
+    }
+  };
+
+  const valueChangeHandler = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <article className="fixed w-screen h-screen left-0 top-0 bg-black/90 md:flex  justify-center items-start overflow-auto z-50">
-      <form className="relative mt-14 md:w-4/5 bg-background px-4 sm:px-20 py-5 gap-5 w-full">
+      <form
+        action={submitUpdate}
+        className="relative mt-14 md:w-4/5 bg-background px-4 sm:px-20 py-5 gap-5 w-full"
+      >
         <header className="mb-5 flex justify-between items-center">
           <h1 className="text-lg py-3 border-b border-slate-600 capitalize">
             Update project
@@ -88,79 +149,80 @@ const EditProject = ({
         </header>
         <UpdateBtn />
         <div className="w-full">
-          <div className="text-sm text-textColor bg-transparent  mt-2">
-            {index < imagesLength ? (
-              <Image
-                src={projectImages[index]}
-                alt="website's image"
-                width={400}
-                height={200}
-                className="w-full md:h-thirtyvh h-fortyvh object-contain border-2 border-slate-800"
-              />
-            ) : (
-              <Image
-                src={previewUrls[index - imagesLength]}
-                alt="website's image"
-                width={400}
-                height={200}
-                className="w-full md:h-thirtyvh h-fortyvh object-contain border-2 border-slate-800"
-              />
-            )}
+          {!!projectImages.length && (
+            <div className="text-sm text-textColor bg-transparent  mt-2">
+              {index < imagesLength ? (
+                <Image
+                  src={projectImages[index]}
+                  alt="website's image"
+                  width={400}
+                  height={200}
+                  className="w-full md:h-thirtyvh h-fortyvh object-contain border border-slate-800"
+                />
+              ) : (
+                <Image
+                  src={previewUrls[index - imagesLength]}
+                  alt="website's image"
+                  width={400}
+                  height={200}
+                  className="w-full md:h-thirtyvh h-fortyvh object-contain border-2 border-slate-800"
+                />
+              )}
 
-            <div className="mt-2 flex flex-wrap gap-1">
-              {projectImages.map((item, index) => {
-                return (
-                  <div className="relative">
-                    <button
-                      className="absolute -top-1 -right-1 bg-background rounded-full"
-                      onClick={() => {
-                        // remove(item.name);
-                      }}
-                    >
-                      <Remove />
-                    </button>
-                    <Image
-                      key={index}
-                      src={item}
-                      alt={item.name}
-                      width={200}
-                      height={150}
-                      className="w-28 h-24 object-contain border border-slate-800"
-                      onClick={() => {
-                        setIndex(index);
-                      }}
-                    />
-                  </div>
-                );
-              })}
-              {newImages.map((item, index) => {
-                return (
-                  <div className="relative">
-                    <button
-                      className="absolute -top-1 -right-1 bg-background rounded-full"
-                      onClick={() => {
-                        remove(item.name);
-                      }}
-                    >
-                      <Remove />
-                    </button>
-                    <Image
-                      key={index}
-                      src={URL.createObjectURL(item)}
-                      alt={item.name}
-                      width={200}
-                      height={150}
-                      className="w-28 h-24 object-contain border border-slate-800"
-                      onClick={() => {
-                        setIndex(index + imagesLength);
-                      }}
-                    />
-                  </div>
-                );
-              })}
+              <div className="mt-2 flex flex-wrap gap-1">
+                {projectImages.map((item, index) => {
+                  return (
+                    <div className="relative">
+                      <button
+                        className="absolute -top-1 -right-1 bg-background rounded-full"
+                        onClick={() => {
+                          // remove(item.name);
+                        }}
+                      >
+                        <Remove />
+                      </button>
+                      <Image
+                        key={index}
+                        src={item}
+                        alt={item.name}
+                        width={200}
+                        height={150}
+                        className="w-28 h-24 object-contain border border-slate-800"
+                        onClick={() => {
+                          setIndex(index);
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+                {newImages.map((item, index) => {
+                  return (
+                    <div className="relative">
+                      <button
+                        className="absolute -top-1 -right-1 bg-background rounded-full"
+                        onClick={() => {
+                          remove(item.name);
+                        }}
+                      >
+                        <Remove />
+                      </button>
+                      <Image
+                        key={index}
+                        src={URL.createObjectURL(item)}
+                        alt={item.name}
+                        width={200}
+                        height={150}
+                        className="w-28 h-24 object-contain border border-slate-800"
+                        onClick={() => {
+                          setIndex(index + imagesLength);
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-
+          )}
           <label htmlFor="images" className=" text-textColor mt-5 block w-40">
             Add Images
           </label>
@@ -168,7 +230,6 @@ const EditProject = ({
             id="images"
             name="image"
             type="file"
-            required
             onChange={changeHandler}
             className="py-2 text-md text-textColor bg-transparent mt-1"
           />
@@ -183,9 +244,11 @@ const EditProject = ({
             required
             name="title"
             type="text"
-            value={title}
+            value={formData.title}
+            onChange={valueChangeHandler}
             className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full"
           />
+          <input id="title" required name="id" value={id} type="hidden" />
 
           {/* category  */}
 
@@ -200,9 +263,11 @@ const EditProject = ({
             name="category"
             type="text"
             required
+            value={formData.category}
+            onChange={valueChangeHandler}
             className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full"
           >
-            <option value={category}>{category}</option>
+            <option value="">--choose category--</option>
             {setCategories.map((item) => {
               return (
                 <option
@@ -229,7 +294,8 @@ const EditProject = ({
             id="websiteURL"
             name="websiteURL"
             type="text"
-            value={websiteURL}
+            value={formData.websiteURL}
+            onChange={valueChangeHandler}
             className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full"
           />
 
@@ -245,7 +311,8 @@ const EditProject = ({
             id="description"
             name="description"
             type="text"
-            value={description}
+            value={formData.description}
+            onChange={valueChangeHandler}
             required
             className="py-2 px-5
             text-md text-textColor bg-transparent border focus:border-blue-500

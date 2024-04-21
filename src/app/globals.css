@@ -4,18 +4,23 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 
 :root {
   --screenHeight: 65vh;
   --fontFamilyMain: "Teko", sans-serif;
-  --fontFamilySecondary: "Jacquard 24", system-ui;
+  --fontFamilySecondary: Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
   --fiftyvh: 50vh;
   --eightyvw: 80vw;
   --fortyvh: 40vw;
   --thirtyvh: 30vw;
   --thirtyfiveVh: 35vw;
 }
+
+/* .fontFamilySecondary {
+  font-family: ;
+} */
 
 .dark {
   --background: 3, 7, 18;

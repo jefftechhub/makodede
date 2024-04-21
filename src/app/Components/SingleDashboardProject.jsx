@@ -5,6 +5,7 @@ const SingleProject = ({
   features,
   title,
   websiteURL,
+  status,
 }) => {
   const [index, setIndex] = useState(0);
 

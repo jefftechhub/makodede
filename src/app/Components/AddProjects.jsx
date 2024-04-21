@@ -8,6 +8,13 @@ import { useFormStatus } from "react-dom";
 
 const AddProjects = () => {
   const { images, setImages } = useContext(ThemeContext);
+  const [formData, setFormData] = useState({
+    category: "",
+    description: "",
+    features: [],
+    title: "",
+    websiteURL: "",
+  });
 
   const handleSubmit = async (formdata) => {
     try {
@@ -17,6 +24,13 @@ const AddProjects = () => {
       const { success } = await submitProject(formdata);
       if (success) {
         setImages([]);
+        setFormData({
+          category: "",
+          description: "",
+          features: [],
+          title: "",
+          websiteURL: "",
+        });
         toast.success("project sent");
       } else if (!success) {
         toast.error("project not sent");
@@ -25,6 +39,13 @@ const AddProjects = () => {
       toast.error("project not sent");
       console.error("Error submitting project:", error);
     }
+  };
+
+  const valueChangeHandler = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setFormData({ ...formData, [name]: value });
   };
 
   const features = [
@@ -61,7 +82,9 @@ const AddProjects = () => {
           required
           name="title"
           type="text"
-          className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-4 w-full md:w-3/4"
+          value={formData.title}
+          onChange={valueChangeHandler}
+          className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full md:w-3/4"
         />
         <label htmlFor="category" className=" text-textColor mt-5 block">
           Category
@@ -70,8 +93,10 @@ const AddProjects = () => {
           id="category"
           name="category"
           type="text"
+          value={formData.category}
+          onChange={valueChangeHandler}
           required
-          className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-4 w-full md:w-3/4"
+          className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full md:w-3/4"
         >
           <option value="">--choose category--</option>
           {categories.map((item) => {
@@ -94,7 +119,9 @@ const AddProjects = () => {
           id="websiteURL"
           name="websiteURL"
           type="text"
-          className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-4 w-full md:w-3/4"
+          value={formData.websiteURL}
+          onChange={valueChangeHandler}
+          className="py-2 px-5 text-md text-textColor bg-transparent border focus:border-blue-500 border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full md:w-3/4"
         />
         <label htmlFor="description" className=" text-textColor mt-5 block">
           Description
@@ -103,10 +130,12 @@ const AddProjects = () => {
           id="description"
           name="description"
           type="text"
+          value={formData.description}
+          onChange={valueChangeHandler}
           required
           className="py-2 px-5
             text-md text-textColor bg-transparent border focus:border-blue-500
-            border-slate-600 block mt-1 focus:outline-none focus:border-4 w-full md:w-3/4 resize-none min-h-56"
+            border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full md:w-3/4 resize-none min-h-56"
         ></textarea>
         <div>
           <h2 className=" text-textColor mt-5 block">Features</h2>

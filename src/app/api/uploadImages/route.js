@@ -9,7 +9,7 @@ export const POST = async (req, res) => {
 
   const files = formData.getAll("images");
   if (files.length === 0) {
-    return NextResponse.json({ error: "No files received." }, { status: 400 });
+    return NextResponse.json({ error: "No files received." });
   }
 
   try {

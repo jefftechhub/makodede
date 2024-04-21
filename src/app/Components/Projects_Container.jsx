@@ -94,7 +94,11 @@ const Projects_Container = ({ projectRef }) => {
           </nav>
           <section className="flex flex-col md:grid grid-cols-2 gap-2">
             {projects.map((item) => {
-              return <Projects setMenu={setMenu} {...item} />;
+              return (
+                <div>
+                  {item.active && <Projects setMenu={setMenu} {...item} />}
+                </div>
+              );
             })}
           </section>
         </main>
