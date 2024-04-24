@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useFormStatus } from "react-dom";
