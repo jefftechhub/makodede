@@ -8,35 +8,30 @@ const Banner = () => {
   const image = useRef(null);
   const my_name = useRef(null);
   const headingBanner = useRef(null);
-  const bannerContacts = useRef(null);
+  const whatsAppBtn = useRef(null);
+  const gitHubBtn = useRef(null);
 
   useEffect(() => {
     const itemsObservered = [
       image.current,
       my_name.current,
       headingBanner.current,
-      bannerContacts.current,
+      whatsAppBtn.current,
+      gitHubBtn.current,
     ];
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((item) => {
         const number = itemsObservered.indexOf(item.target);
         if (item.isIntersecting) {
-          if (number === 0) {
+          if (number === 0 || number === 1 || number === 2) {
             item.target.style.transform = "translate(0)";
             item.target.style.opacity = "1";
           }
-          if (number === 1) {
-            item.target.style.opacity = "1";
-            item.target.style.transform = "translate(0)";
-          }
-          if (number === 2) {
-            item.target.style.transform = "translate(0)";
-            item.target.style.opacity = "1";
-          }
-          if (number === 3) {
-            item.target.style.transform = "translate(0)";
-            item.target.style.opacity = "1";
+          if (number === 3 || number === 4) {
+            setTimeout(() => {
+              item.target.style.opacity = "1";
+            }, 700);
           }
         }
       });
@@ -63,7 +58,7 @@ const Banner = () => {
           className="headingBanner text-textColor translate-y-28 py-10 z-10"
         >
           <h1
-            className="text-4xl font-bold uppercase md:text-5xl text-textColorBanner 
+            className="font-bold uppercase text-5xl text-textColorBanner 
           text-center md:text-start font-fontFamilySecondary"
           >
             Welcome🤝 to my digital space🚀
@@ -77,19 +72,20 @@ const Banner = () => {
             leave a <span className="text-blue-500">lasting impression</span>.
           </p>
         </div>
-        <div
-          ref={bannerContacts}
-          className="flex w-full md:justify-start justify-center gap-3 md:gap-5 -translate-x-full opacity-0"
-        >
+        <div className="flex w-full md:justify-start justify-center gap-3 md:gap-5 ">
           <a
-            className="py-2 px-3 md:py-3 md:px-6 rounded-3xl  text-xs items-center flex gap-2 text-white bg-blue-600 transition-all ease-in-out duration-200 hover:bg-blue-500"
-            href=""
+            ref={whatsAppBtn}
+            className="py-2  md:py-3 px-6 rounded-3xl  text-xs items-center flex gap-1 text-white bg-blue-600 transition-opacity 
+            ease-in-out duration-1000 hover:bg-blue-500  opacity-0"
+            href="https://wa.me/message/IIX5U4JPHMAJC1"
             target="_blank"
           >
             <WhatsApp /> WhatsApp
           </a>
           <a
-            className="py-2 px-3 md:py-3 md:px-6  text-xs text-textColor items-center rounded-3xl  flex gap-2 border-2 border-blue-500 transition-all ease-in-out duration-200 hover:border-blue-300"
+            ref={gitHubBtn}
+            className="py-3 px-6  text-xs text-textColor items-center rounded-3xl  flex gap-1 border-2 border-blue-500 transition-opacity 
+            opacity-0 ease-in-out duration-1000 hover:border-blue-300"
             href=""
             target="_blank"
           >

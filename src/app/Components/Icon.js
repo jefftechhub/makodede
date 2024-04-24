@@ -5,7 +5,7 @@ export const Github = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 496 512"
-      className="h-4 w-4 md:h-5 md:w-5"
+      className="h-5 w-5"
     >
       <path
         fill="#187BCD"
@@ -21,7 +21,7 @@ export const WhatsApp = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
-      className="h-4 w-4 md:h-5 md:w-5"
+      className="h-5 w-5"
     >
       <path
         fill="#90EE90"

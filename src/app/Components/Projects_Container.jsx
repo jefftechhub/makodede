@@ -27,10 +27,6 @@ const Projects_Container = ({ projectRef }) => {
     "E-commerce",
     "News",
     "blogging site",
-    "MemberShip",
-    "Non-profit",
-    "Personal",
-    "Entertainment",
     "other Projects",
   ];
 

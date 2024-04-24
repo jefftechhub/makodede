@@ -167,7 +167,7 @@ const Contacts = ({ contactsRef }) => {
         <form
           action={formAction}
           ref={form}
-          className="form mt-10 sm:mt-0 w-full sm:w-1/2  bg-blue-500/5 p-8 sm:rounded-r-3xl"
+          className="form mt-10 sm:mt-0 w-full md:w-1/2  bg-blue-500/5 p-5 md:p-8 md:rounded-r-3xl"
         >
           <h2 className="text-textColor text-lg sm:text-3xl mb-3 sm:mb-5">
             Leave me a message✍
@@ -180,7 +180,7 @@ const Contacts = ({ contactsRef }) => {
               Names
             </label>
             <input
-              className="focus:outline-none py-3 text-lg border-b-2  bg-transparent duration-0 border-slate-600 text-textColor w-full"
+              className="focus:outline-none py-3 text-lg border-b  bg-transparent duration-0 border-slate-600 text-textColor w-full"
               type="text"
               name="names"
               id="names"
@@ -197,7 +197,7 @@ const Contacts = ({ contactsRef }) => {
               Email Address
             </label>
             <input
-              className="focus:outline-none py-3 border-b-2 bg-transparent duration-0 border-slate-600 text-textColor w-full text-lg"
+              className="focus:outline-none py-3 border-b bg-transparent duration-0 border-slate-600 text-textColor w-full text-lg"
               type="text"
               name="email"
               id="email"
@@ -208,13 +208,13 @@ const Contacts = ({ contactsRef }) => {
           </div>
           <div class="relative my-8">
             <label
-              className="absolute top-3 text-sm transition-all duration-300 bg-transparent origin-left text-textColor"
+              className="absolute top-3  text-sm transition-all duration-300 bg-transparent origin-left text-textColor"
               htmlFor="message"
             >
               Message
             </label>
             <textarea
-              className="focus:outline-none duration-0 py-5  border-b-2 resize-none text-textColor bg-transparent border-slate-600 text-lg w-full"
+              className="focus:outline-none duration-0 py-5  border-b resize-none text-textColor bg-transparent h-14 overflow-hidden focus:h-auto border-slate-600 text-lg w-full"
               type="text"
               name="message"
               id="message"

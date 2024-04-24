@@ -64,7 +64,7 @@
 .imageContainer {
   position: relative;
   height: 50vh;
-  width: 65%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,23 +76,10 @@
 
 /* for smooth transition in observer  */
 
-.about,
 .form,
 .navContacts {
   opacity: 0;
   transform: translateY(200px);
-}
-
-.about ul li {
-  margin-left: 30px;
-  position: relative;
-}
-
-.about ul li:before {
-  content: "📌";
-  position: absolute;
-  top: 0;
-  left: -30px;
 }
 
 .active {

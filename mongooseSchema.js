@@ -21,6 +21,27 @@ const projectSchema = new Schema({
   },
 });
 
+const userSchema = new Schema({
+  email: String,
+  password: String,
+  dateJoined: {
+    type: Date,
+    default: Date.now,
+  },
+  active: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+const sessionSchema = new Schema({
+  userId: String,
+  dateCreated: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 mongoose.models = {};
 
 export const Messages =
@@ -28,3 +49,9 @@ export const Messages =
 
 export const Projects =
   mongoose.models.Projects || mongoose.model("Projects", projectSchema);
+
+export const Users =
+  mongoose.models.Users || mongoose.model("Users", userSchema);
+
+export const Session =
+  mongoose.models.Session || mongoose.model("Session", sessionSchema);

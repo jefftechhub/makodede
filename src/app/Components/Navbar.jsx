@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState, useContext } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Contact,
@@ -43,8 +44,14 @@ const NavbarJsx = ({ project, about, contacts }) => {
       className="flex items-center relative justify-between py-5 "
     >
       <div className="flex items-center gap-6">
-        {/* <Img src ={} alt ={}/> */}
-        <h2 className="text-textColor text-xl uppercase">Logo</h2>
+        <Image
+          src="/MyPictures/logo.jpeg"
+          width={300}
+          height={300}
+          alt="Logo"
+          className="h-7 w-7 sm:h-8 sm:w-8 rounded-full"
+        />
+
         <nav
           ref={nav}
           className="flex -translate-x-full  sm:translate-x-0 sm:flex-row  sm:bg-transparent sm:gap-6 sm:p-0 flex-col items-start gap-6 sm:left-0 -left-4 py-14 pl-8 w-3/4 sm:w-full pb-40 z-30 h-screenHeight sm:h-auto absolute sm:relative backdrop-blur-sm sm:backdrop-blur-0 bg-blue-800/65 rounded-br-3xl transition-transform duration-300 ease-in-out"
