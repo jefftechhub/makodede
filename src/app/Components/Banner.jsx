@@ -58,7 +58,7 @@ const Banner = () => {
           className="headingBanner text-textColor translate-y-28 py-10 z-10"
         >
           <h1
-            className="font-bold uppercase text-5xl text-textColorBanner 
+            className="font-bold uppercase md:text-5xl text-4xl text-textColorBanner 
           text-center md:text-start font-fontFamilySecondary"
           >
             Welcome🤝 to my digital space🚀
