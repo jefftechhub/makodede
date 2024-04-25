@@ -1,8 +1,9 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 import Image from "next/image";
+import { ThemeContext } from "../context/ThemeProvider";
 
-const About = ({ aboutRef }) => {
+const About = () => {
   const expirience = [
     "Designed and developed dynamic and responsive web applications utilizing HTML, CSS, JavaScript, and modern frameworks such as React.js and Next js.",
     "Implemented backend functionalities using Node.js, Express.js, and databases like MongoDB and MySQL.",
@@ -19,6 +20,7 @@ const About = ({ aboutRef }) => {
   const education = useRef(null);
   const conclusion = useRef(null);
   const thankYou = useRef(null);
+  const { aboutRef } = useContext(ThemeContext);
 
   useEffect(() => {
     const itemsObservered = [

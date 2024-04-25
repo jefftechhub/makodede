@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Projects from "./Projects";
 import {
   portfolio,
@@ -17,10 +17,12 @@ import {
   Search,
 } from "./Icon";
 import { getProjects } from "../../../utils/actions";
+import { ThemeContext } from "../context/ThemeProvider";
 
-const Projects_Container = ({ projectRef }) => {
+const Projects_Container = () => {
   const [menu, setMenu] = useState(false);
   const [projects, setProjects] = useState([]);
+  const { projectRef } = useContext(ThemeContext);
 
   const btns = [
     "portfolio",

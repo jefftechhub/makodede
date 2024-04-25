@@ -13,26 +13,19 @@ import { ThemeContext } from "./context/ThemeProvider";
 
 export default function Home() {
   const { theme } = useContext(ThemeContext);
-  const projectRef = useRef(null);
-  const aboutRef = useRef(null);
-  const contactsRef = useRef(null);
 
   return (
     // flex Child to add gaps
     //inside each child to div padding is added for enough spacing
     <main className={`font-fontFamilyMain flex flex-col items-center ${theme}`}>
       <main className="flex flex-col gap-20 md:w-full sm:w-full lg:w-eightyvw px-4 sm:px-9">
-        <NavbarJsx
-          project={projectRef.current}
-          about={aboutRef.current}
-          contacts={contactsRef.current}
-        />
+        <NavbarJsx />
         <BackToTop />
         <Banner />
         <Skills />
-        <Projects_Container projectRef={projectRef} />
-        <About aboutRef={aboutRef} />
-        <Contacts contactsRef={contactsRef} />
+        <Projects_Container />
+        <About />
+        <Contacts />
         <Review />
       </main>
       <Footer />

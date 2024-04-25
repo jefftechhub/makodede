@@ -62,3 +62,14 @@ export const data = [
     company: "Lagosta Ltd",
   },
 ];
+
+export const experiences = [
+  "Designed and developed dynamic and responsive web applications utilizing HTML, CSS, JavaScript, and modern frameworks such as React.js and Next js.",
+  "Implemented backend functionalities using Node.js, Express.js, and databases like MongoDB and MySQL.",
+  "   Proficient in version control systems like Git, ensuring collaborative and efficient development workflows.",
+  " Integrated third-party APIs to enhance application functionality  and user experience.",
+  "   Led and participated in agile development methodologies, fostering   a culture of continuous improvement and adaptability.",
+  "Assisted in the development of user interfaces for web  applications using HTML, CSS, and JavaScript.",
+  "   Collaborated with senior developers to implement responsive  designs and optimize website performance.",
+  " Conducted thorough testing and debugging to ensure smooth user  experiences across various browsers and devices.",
+];

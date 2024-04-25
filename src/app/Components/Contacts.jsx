@@ -1,16 +1,18 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { PhoneCall, Linkedin, Email } from "./Icon";
 import Image from "next/image";
 import { submitHandler } from "../../../utils/actions";
 import { useFormStatus, useFormState } from "react-dom";
 import toast from "react-hot-toast";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const initialState = {
   message: null,
 };
 
-const Contacts = ({ contactsRef }) => {
+const Contacts = () => {
+  const { contactsRef } = useContext(ThemeContext);
   const [state, formAction] = useFormState(submitHandler, initialState);
 
   useEffect(() => {

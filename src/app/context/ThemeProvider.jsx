@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, useRef, createContext } from "react";
 import { Toaster } from "react-hot-toast";
 
 export const ThemeContext = createContext();
@@ -12,6 +12,9 @@ const ThemeProvider = ({ children }) => {
     "dark"
   );
   const [images, setImages] = useState([]);
+  const projectRef = useRef(null);
+  const aboutRef = useRef(null);
+  const contactsRef = useRef(null);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -24,6 +27,9 @@ const ThemeProvider = ({ children }) => {
         setTheme,
         setImages,
         images,
+        projectRef,
+        aboutRef,
+        contactsRef,
       }}
     >
       <Toaster />

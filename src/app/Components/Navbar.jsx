@@ -14,8 +14,9 @@ import {
 } from "./Icon";
 import { ThemeContext } from "../context/ThemeProvider";
 
-const NavbarJsx = ({ project, about, contacts }) => {
-  const { theme, setTheme } = useContext(ThemeContext);
+const NavbarJsx = () => {
+  const { theme, setTheme, projectRef, aboutRef, contactsRef } =
+    useContext(ThemeContext);
   const [openMenu, setOpenMenu] = useState(false);
   const nav = useRef(null);
   const header = useRef(null);
@@ -59,7 +60,7 @@ const NavbarJsx = ({ project, about, contacts }) => {
           <button
             className="text-textColor flex gap-4 text-xl sm:text-sm items-center"
             onClick={() => {
-              scrollToView(project);
+              scrollToView(projectRef.current);
             }}
           >
             <Projects />
@@ -68,7 +69,7 @@ const NavbarJsx = ({ project, about, contacts }) => {
           <button
             className="text-textColor flex gap-4 text-xl sm:text-sm items-center"
             onClick={() => {
-              scrollToView(about);
+              scrollToView(aboutRef.current);
             }}
           >
             <About />
@@ -77,7 +78,7 @@ const NavbarJsx = ({ project, about, contacts }) => {
           <button
             className="text-textColor flex gap-4 text-xl sm:text-sm items-center"
             onClick={() => {
-              scrollToView(contacts);
+              scrollToView(contactsRef.current);
             }}
           >
             <Contact />
