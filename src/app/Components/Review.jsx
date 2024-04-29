@@ -49,9 +49,9 @@ const Review = () => {
 
   return (
     <section>
-      <h1 className="text-textColor text-2xl sm:text-3xl pb-1">
+      <h2 className="text-textColor text-2xl sm:text-3xl pb-1">
         What clients say<span className="text-blue-500">.</span>
-      </h1>
+      </h2>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
 
       <article className="relative sm:pt-20 pt-14 w-full items-start text-textColor overflow-hidden flex">
@@ -122,12 +122,12 @@ const Review = () => {
                   )}
                 </div>
                 <div className="flex flex-col items-center">
-                  <h3 className="capitalize mb-3 text-blue-500 font-bold text-xl sm:text-2xl">
+                  <h5 className="capitalize mb-3 text-blue-500 font-bold text-xl sm:text-2xl">
                     {item && item.name}
-                  </h3>
-                  <h4 className="capitalize mb-3 text-blue-500 text-sm sm:text-lg">
+                  </h5>
+                  <h6 className="capitalize mb-3 text-blue-500 text-sm sm:text-lg">
                     {item && item.company}
-                  </h4>
+                  </h6>
                   <div className="flex mb-2 text-orange-400">
                     <Star />
                     <Star />

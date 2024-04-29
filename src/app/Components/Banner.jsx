@@ -46,13 +46,13 @@ const Banner = () => {
   return (
     <section className="banner  sm:flex py-14">
       <div className="flex flex-col items-start justify-evenly w-full sm:w-1/2">
-        <h2
+        <p
           ref={my_name}
           className=" text-textColor relative inline-block  rounded-xl md:text-start text-center text-sm translate-y-full w-full"
         >
           Hello! 👋👋 I am
           <span className="font-bold text-sm"> GEOFREY ODHIAMBO ODEDE</span>
-        </h2>
+        </p>
         <div
           ref={headingBanner}
           className="headingBanner text-textColor translate-y-28 py-10 z-10"

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Expand, showmore } from "./Icon";
+import { Expand } from "./Icon";
 import SingleProject from "./SingleProject";
 
 const projects = (props) => {

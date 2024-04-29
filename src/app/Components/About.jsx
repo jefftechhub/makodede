@@ -62,39 +62,30 @@ const About = () => {
 
   return (
     <section>
-      <h1
+      <h2
         ref={aboutRef}
         className="text-textColor py-3 text-2xl sm:text-3xl pb-1"
       >
         About Me<span className="text-blue-500">.</span>
-      </h1>
+      </h2>
       <p className=" inline-block bg-blue-500 sm:w-14 w-12 h-1 rounded-xl"></p>
       <article className=" sm:pt-20 pt-14 text-textColor gap-6">
         <div className="flex flex-col md:grid md:items-center grid-cols-2 gap-2">
-          <div className="imageContainer" ref={imageAbout}>
-            <Image
-              src="/MyPictures/makodede.jpeg"
-              width={500}
-              height={600}
-              priority
-              alt="Geofrey Odede's picture"
-              className="aboutMe_Image"
-            />
-            <p></p>
-            <Image
-              src="/MyPictures/makodede.jpeg"
-              fill
-              sizes="(max-width: 639px) 100vw, 50vw"
-              alt="Geofrey Odede's picture"
-              className="object-cover  absolute -z-10"
-            />
-          </div>
+          <Image
+            ref={imageAbout}
+            src="/MyPictures/makodede.jpeg"
+            width={500}
+            height={600}
+            priority
+            alt="Geofrey Odede's picture"
+            className="object-contain aboutMe_Image"
+          />
         </div>
         <div ref={experience} className="opacity-0 translate-y-52 md:w-1/2">
-          <h1 className="text-xl py-5 text-blue-500">Experience</h1>
-          <h2 className="text-lg mb-2">
+          <h3 className="text-xl py-5 text-blue-500">Experience</h3>
+          <h4 className="text-lg mb-2">
             Full Stack Web Developer (2022 - Present)
-          </h2>
+          </h4>
           <ul className="text-sm">
             {expirience.map((item) => {
               return (
@@ -108,10 +99,10 @@ const About = () => {
         </div>
         <div className={!showless && "h-0 overflow-hidden"}>
           <div ref={education} className="opacity-0 translate-y-52  md:w-1/2">
-            <h1 className="text-xl py-5 text-blue-500">Education</h1>
-            <h2 className="text-lg mb-2">
+            <h3 className="text-xl py-5 text-blue-500">Education</h3>
+            <h4 className="text-lg mb-2">
               Self-Taught Programmer (2022 - Present)
-            </h2>
+            </h4>
             <ul className="text-sm">
               <li>
                 Leveraged online resources such as YouTube tutorials and coding
@@ -125,7 +116,7 @@ const About = () => {
             </ul>
           </div>
           <div ref={conclusion} className="opacity-0 translate-y-52 md:w-1/2">
-            <h1 className="text-xl py-5 text-blue-500">Conclusion</h1>
+            <h3 className="text-xl py-5 text-blue-500">Conclusion</h3>
             <p className="text-sm">
               In my journey as a full stack web developer, I've embraced
               challenges, celebrated victories, and continually expanded my

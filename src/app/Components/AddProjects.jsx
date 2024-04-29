@@ -2,7 +2,7 @@
 import React, { useState, useContext } from "react";
 import FileInput from "./FileInput";
 import { ThemeContext } from "../context/ThemeProvider";
-import { submitProject } from "../../../utils/actions";
+import { submitProject } from "../../utils/actions";
 import toast from "react-hot-toast";
 import { useFormStatus } from "react-dom";
 

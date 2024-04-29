@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Cancel, Remove, Tick } from "./Icon";
-import { updateProject } from "../../../utils/actions";
+import { updateProject } from "../../utils/actions";
 import { useFormStatus } from "react-dom";
 import toast from "react-hot-toast";
 
@@ -25,19 +25,9 @@ const EditProject = ({
   const [formData, setFormData] = useState({
     title,
     description,
-    features,
-    title,
     websiteURL,
     category,
   });
-
-  const setFeatures = [
-    "Send Email",
-    "S.E.O",
-    "dashboard",
-    "payment intergration",
-    "database intergration",
-  ];
 
   const setCategories = [
     "E-Comerce",
@@ -109,7 +99,6 @@ const EditProject = ({
           title: "",
           description: "",
           features: [],
-          title: "",
           websiteURL: "",
           category: "",
         });
@@ -131,7 +120,7 @@ const EditProject = ({
   };
 
   return (
-    <article className="fixed w-screen h-screen left-0 top-0 bg-black/90 md:flex  justify-center items-start overflow-auto z-50">
+    <article className="fixed w-screen h-screen left-0 top-0 bg-black md:flex  justify-center items-start overflow-auto z-50">
       <form
         action={submitUpdate}
         className="relative mt-14 md:w-4/5 bg-background px-4 sm:px-20 py-5 gap-5 w-full"
@@ -318,29 +307,6 @@ const EditProject = ({
             text-md text-textColor bg-transparent border focus:border-blue-500
             border-slate-600 block mt-1 focus:outline-none focus:border-2 w-full resize-none min-h-56"
           ></textarea>
-
-          {/* Features  */}
-
-          <div>
-            <h2 className=" text-textColor mt-5 block">Features</h2>
-            <div className="grid grid-cols-3 gap-2">
-              {setFeatures.map((item) => {
-                return (
-                  <div key={item} className="mt-2">
-                    <input
-                      id={item}
-                      name={item}
-                      type="checkbox"
-                      className="text-xs md:sm mr-2"
-                    />
-                    <label htmlFor={item} className="text-textColor capitalize">
-                      {item}
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </form>
     </article>

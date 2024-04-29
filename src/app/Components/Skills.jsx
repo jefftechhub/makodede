@@ -39,9 +39,9 @@ const Skills = () => {
 
   return (
     <section>
-      <h1 className="text-textColor text-2xl sm:text-3xl pb-1">
+      <h2 className="text-textColor text-2xl sm:text-3xl pb-1">
         My Skills<span className="text-blue-500">.</span>
-      </h1>
+      </h2>
       <p
         className=" inline-block bg-blue-500 sm:w-14 
       w-12 h-1 rounded-xl"

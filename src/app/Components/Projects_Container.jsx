@@ -16,13 +16,14 @@ import {
   Cancel,
   Search,
 } from "./Icon";
-import { getProjects } from "../../../utils/actions";
+import { getProjects } from "../../utils/actions";
 import { ThemeContext } from "../context/ThemeProvider";
 
 const Projects_Container = () => {
   const [menu, setMenu] = useState(false);
   const [projects, setProjects] = useState([]);
   const { projectRef } = useContext(ThemeContext);
+  const [loading, setLoading] = useState(false);
 
   const btns = [
     "portfolio",
@@ -47,12 +48,12 @@ const Projects_Container = () => {
 
   return (
     <section ref={projectRef}>
-      <h1
+      <h2
         ref={projectRef}
         className="text-textColor text-2xl sm:text-3xl py-3 pb-1"
       >
         Projects<span className="text-blue-500">.</span>
-      </h1>
+      </h2>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
       <article
         className="pt-14 

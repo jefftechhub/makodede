@@ -46,11 +46,11 @@ const NavbarJsx = () => {
     >
       <div className="flex items-center gap-6">
         <Image
-          src="/MyPictures/logo.jpeg"
+          src="/MyPictures/Logo.png"
           width={300}
           height={300}
           alt="Logo"
-          className="h-9 w-9 md:h-10 md:w-10 rounded-full"
+          className="h-10 bg-white w-10 md:h-12 md:w-12 rounded-tl-3xl"
         />
 
         <nav

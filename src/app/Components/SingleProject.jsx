@@ -25,7 +25,7 @@ const SingleProject = ({
         <div className="w-full relative  md:w-2/3">
           <div className="relative">
             <button
-              className="absolute top-1/2 p-1 left-0 rounded-full bg-slate-600 text-white"
+              className="absolute top-1/2 p-1 left-0 rounded-full bg-slate-600/60 text-white"
               onClick={() => {
                 console.log(index);
                 if (index <= 0) {
@@ -38,7 +38,7 @@ const SingleProject = ({
               <LeftSlider />
             </button>
             <button
-              className="absolute top-1/2 p-1 right-0 rounded-full bg-slate-600 text-white"
+              className="absolute top-1/2 p-1 right-0 rounded-full bg-slate-600/60 text-white"
               onClick={() => {
                 console.log(index);
                 if (index >= images.length - 1) {
@@ -89,25 +89,6 @@ const SingleProject = ({
           >
             {websiteURL}
           </a>
-          <ul>
-            <h3 className="text-textColor py-2 text-lg underline capitalize">
-              Features
-            </h3>
-            {features.map((feature, index) => {
-              const featureKey = Object.keys(feature)[0];
-              const featureValue = feature[featureKey];
-
-              return (
-                <div className="py-1 items-center flex gap-2">
-                  <Tick />
-                  <li key={index} className="capitalize">
-                    {featureValue && <span>{featureKey}</span>}
-                    {!featureValue && <span>{featureKey}</span>}
-                  </li>
-                </div>
-              );
-            })}
-          </ul>
         </div>
       </main>
     </article>

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { PhoneCall, Linkedin, Email } from "./Icon";
 import Image from "next/image";
-import { submitHandler } from "../../../utils/actions";
+import { submitHandler } from "../../utils/actions";
 import { useFormStatus, useFormState } from "react-dom";
 import toast from "react-hot-toast";
 import { ThemeContext } from "../context/ThemeProvider";
@@ -82,12 +82,12 @@ const Contacts = () => {
 
   return (
     <section>
-      <h1
+      <h2
         ref={contactsRef}
         className="text-textColor py-3 text-2xl sm:text-3xl pb-1"
       >
         Lets Talk<span className="text-blue-500">.</span>
-      </h1>
+      </h2>
       <p className=" inline-block bg-blue-500 w-12 sm:w-14 h-1 rounded-xl"></p>
 
       <div className="sm:flex pt-14 sm:pt-20 justify-between items-center gap-6">

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { signup } from "../../../utils/actions";
+import { signup } from "../../utils/actions";
 import toast from "react-hot-toast";
 import { useFormStatus } from "react-dom";
 
@@ -45,13 +45,13 @@ function Signup() {
   };
 
   return (
-    <main className="bg-gray-950 flex justify-center items-center min-h-screen p-3 sm:p-5">
+    <main className="bg-white md:bg-gray-950 flex justify-center items-center min-h-screen p-0 md:p-3 sm:p-5">
       <form
         action={submitSignup}
         noValidate
-        className="bg-white rounded-md w-full sm:w-3/4 md:w-1/2  p-3 sm:p-5 md:p-10"
+        className="bg-white rounded-md w-full md:px-0 md:w-2/3 lg:w-1/2 px-6 py-10"
       >
-        <h1 className="text-2xl py-3">Register</h1>
+        <h1 className="text-3xl font-bold py-3">Register</h1>
 
         <label
           className="block pt-3 pb-1 capitalize text-sm font-bold"
@@ -106,10 +106,12 @@ function Signup() {
           autocomplete="off"
         />
 
-        <Link className="text-blue-500 underline" href="/signin">
-          Log in
-        </Link>
-        <SubmitBtn />
+        <div className="mt-6">
+          <Link className="text-blue-500  underline" href="/signin">
+            Log in
+          </Link>
+          <SubmitBtn />
+        </div>
       </form>
     </main>
   );
@@ -122,7 +124,7 @@ const SubmitBtn = () => {
     <button
       type="submit"
       disabled={pending}
-      className="py-2 px-6 bg-blue-500 text-xs text-white block rounded-md my-4"
+      className="py-3 my-3 px-6 bg-blue-500 text-sm text-white block rounded-md w-full"
     >
       {pending ? "submitting..." : "submit"}
     </button>

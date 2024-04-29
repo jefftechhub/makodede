@@ -47,10 +47,13 @@
 }
 
 .aboutMe_Image {
-  object-fit: contain;
-  filter: grayscale();
-  max-height: 90%;
-  max-width: 90%;
+  background: linear-gradient(to top right, rgb(44, 8, 173), rgb(88, 21, 177));
+  border-radius: 20px;
+  border-bottom-right-radius: 200px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(150px);
+  height: 50vh;
 }
 
 .imageContainer p {
@@ -70,8 +73,6 @@
   align-items: center;
 
   /* for smooth transition in observer  */
-  opacity: 0;
-  transform: translateY(150px);
 }
 
 /* for smooth transition in observer  */
@@ -146,6 +147,13 @@
 @media (max-width: 639px) {
   .imageContainer {
     height: 50vh;
+    width: 100%;
+  }
+
+  .aboutMe_Image {
+    border-radius: 10px;
+    border-bottom-right-radius: 150px;
+    height: auto;
     width: 100%;
   }
 

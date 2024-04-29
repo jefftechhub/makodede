@@ -1,113 +1,58 @@
-"use client";
-import React, { useState, usE } from "react";
-import Link from "next/link";
-import toast from "react-hot-toast";
-import { useFormStatus } from "react-dom";
-import { signin } from "../../../utils/actions";
+import { redirect } from "next/navigation";
+import Signin from "./Signin";
+import { auth, signIn } from "@/auth";
+import Image from "next/image";
 
-function Signin() {
-  const [redirecting, setRedirecting] = useState(false);
-  function redirectToDashboard() {
-    window.location.href = "/dashboard";
+export const metadata = {
+  title: "Sign In",
+  description:
+    "Welcome back! Sign in to access your personalized dashboard where you can manage your account settings, track your progress, and explore exclusive features.",
+};
+
+const page = async () => {
+  const sessions = await auth();
+  const user = sessions?.user;
+
+  if (user) {
+    redirect("/dashboard");
   }
 
-  const [userValues, setUserValues] = useState({
-    email: "",
-    password: "",
-  });
-
-  const changeHandler = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-
-    setUserValues({ ...userValues, [name]: value });
-  };
-
-  const submitSignin = async (formdata) => {
-    try {
-      const { success, message } = await signin(formdata);
-
-      if (success) {
-        toast.success(message);
-        setRedirecting(true);
-        redirectToDashboard();
-      } else if (!success) {
-        toast.error(message);
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Failed to log in server");
-    }
-  };
-
   return (
-    <main className="bg-gray-950 flex justify-center items-center min-h-screen p-3 sm:p-5">
-      <form
-        action={submitSignin}
-        className="bg-white rounded-md w-full sm:w-3/4 md:w-1/2  p-3 sm:p-5 md:p-10"
-      >
-        <h1 className="text-2xl py-3">Log In</h1>
-
-        <label
-          className="block pt-3 pb-1 capitalize text-sm font-bold"
-          htmlFor="email"
-        >
-          email address
-        </label>
-        <input
-          className="w-full border border-black py-2 text-sm px-3  md:px-5  focus:outline-none rounded-sm focus:border-blue-500 focus:border-2"
-          id="email"
-          type="email"
-          name="email"
-          required
-          value={userValues.email}
-          onChange={changeHandler}
-        />
-
-        <label
-          className="block pt-3 pb-1 capitalize text-sm font-bold"
-          htmlFor="password"
-        >
-          Password
-        </label>
-
-        <input
-          className="w-full border border-black py-2 pr-12 text-sm px-3  md:px-5 mb-3 focus:outline-none rounded-sm focus:border-blue-500 focus:border-2"
-          id="password"
-          type="password"
-          name="password"
-          required
-          value={userValues.password}
-          onChange={changeHandler}
-        />
-
-        <Link className="text-blue-500 underline" href="/forgot_password">
-          Forgot Password
-        </Link>
-        <SubmitBtn redirecting={redirecting} />
-      </form>
-    </main>
-  );
-}
-
-const SubmitBtn = ({ redirecting }) => {
-  const { pending } = useFormStatus();
-
-  return (
-    <div className="my-4">
-      {redirecting ? (
-        <p>Redirecting...</p>
-      ) : (
-        <button
-          type="submit"
-          disabled={pending}
-          className="py-2 px-6 bg-blue-500 text-xs text-white block rounded-md "
-        >
-          {pending ? "loading..." : "log in"}
-        </button>
-      )}
-    </div>
+    <section className="bg-white md:bg-gray-950 min-h-screen flex justify-center items-center md:px-10">
+      <main className="bg-white rounded-md w-full md:px-0 md:w-2/3 lg:w-1/2 px-8 py-10">
+        <div className="flex flex-col items-center w-full">
+          <h1 className="text-3xl py-5 font-bold">Welcome Back!</h1>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("google");
+              redirect("/dashboard");
+            }}
+            className="w-full"
+          >
+            <button
+              className="border rounded-md w-full px-5 py-1.5 justify-center border-gray-500 flex gap-1 items-center text-sm"
+              type="submit"
+            >
+              <Image
+                src="/Logo/google.png"
+                width={200}
+                height={200}
+                className="h-6 w-6 md:h-8 md:w-8"
+              />
+              Signin with Google
+            </button>
+          </form>
+          <div className="relative border-b-2 border-gray-400 w-full my-10">
+            <p className="text-sm px-6  absolute  -translate-y-1/2  bg-white left-1/2 -translate-x-1/2">
+              or
+            </p>
+          </div>
+        </div>
+        <Signin />
+      </main>
+    </section>
   );
 };
 
-export default Signin;
+export default page;
