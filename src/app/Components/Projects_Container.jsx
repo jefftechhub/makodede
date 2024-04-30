@@ -23,7 +23,7 @@ const Projects_Container = () => {
   const [menu, setMenu] = useState(false);
   const [projects, setProjects] = useState([]);
   const { projectRef } = useContext(ThemeContext);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const btns = [
     "portfolio",
@@ -36,8 +36,10 @@ const Projects_Container = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const projects = await getProjects();
         setProjects(projects);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
@@ -45,6 +47,8 @@ const Projects_Container = () => {
 
     fetchData();
   }, []);
+
+  const placeHolder = ["", "", "", ""];
 
   return (
     <section ref={projectRef}>
@@ -91,15 +95,53 @@ const Projects_Container = () => {
               <Btn key={index} btn={btn} index={index} setMenu={setMenu} />
             ))}
           </nav>
-          <section className="flex flex-col md:grid grid-cols-2 gap-2">
-            {projects.map((item) => {
-              return (
-                <div>
-                  {item.active && <Projects setMenu={setMenu} {...item} />}
+
+          {loading ? (
+            <div className="w-full flex flex-col md:grid grid-cols-2 justify-start items-start min-h-screen gap-2">
+              {placeHolder.map((item) => {
+                return (
+                  <div className="w-full text-textColor flex flex-col gap-4 bg-slate-500/5 py-5 rounded-lg">
+                    <section className="flex gap-2 px-5">
+                      <p className="w-3 h-3 bg-red-600 rounded-full"></p>
+                      <p className="w-3 h-3 bg-yellow-600 rounded-full"></p>
+                      <p className="w-3 h-3 bg-blue-600 rounded-full"></p>
+                      <p className="w-3 h-3 bg-textColor rounded-full"></p>
+                    </section>
+                    <div className="relative w-full h-64 bg-slate-300/5"></div>
+                    <section className="px-5 flex justify-between items-start">
+                      <div className="w-3/4 flex flex-col gap-1">
+                        <div className="h-5 w-1/2 bg-slate-300/5"></div>
+                        <div className="h-5 w-1/3 bg-slate-300/5"></div>
+                      </div>
+                      <div className="h-8 w-14 bg-slate-300/5"></div>
+                    </section>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div>
+              {!projects.length > 0 ? (
+                <div className="flex justify-center items-center w-full min-h-60">
+                  <p className="text-lg md:text-xl text-textColor">
+                    Sorry! There are no projects at the momment.
+                  </p>
                 </div>
-              );
-            })}
-          </section>
+              ) : (
+                <section className="flex flex-col md:grid grid-cols-2 justify-start items-start min-h-screen gap-2">
+                  {projects.map((item) => {
+                    return (
+                      <div className="w-full">
+                        {item.active && (
+                          <Projects setMenu={setMenu} {...item} />
+                        )}
+                      </div>
+                    );
+                  })}
+                </section>
+              )}
+            </div>
+          )}
         </main>
       </article>
     </section>
